@@ -3,26 +3,63 @@ import Footer from "./components/Footer";
 
 export default function App() {
   return (
-    <div className="min-h-screen flex flex-col bg-white text-gray-900 dark:bg-slate-950 dark:text-slate-100">
+    <div className="relative min-h-screen flex flex-col bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100 overflow-hidden font-sans selection:bg-yellow-500/30">
+
+      {/* Background Pattern - The "Tech" Vibe */}
+      <div className="fixed inset-0 z-0 pointer-events-none">
+        <div className="absolute inset-0 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] dark:bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
+        {/* Subtle top glow */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-yellow-500/10 dark:bg-yellow-500/5 blur-[120px] rounded-full mix-blend-screen"></div>
+      </div>
 
       {/* Top Navigation */}
       <Navbar />
 
       {/* Main Content */}
-      <main className="flex-1 p-6">
-        <h2 className="text-3xl font-semibold mb-2">
-          Welcome to JavaScript Master Tutorial
+      <main className="relative z-10 flex-1 flex flex-col items-center justify-center px-6 pt-20 pb-32 text-center max-w-5xl mx-auto w-full">
+
+        {/* Pill Badge */}
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 mb-8 shadow-sm animate-fade-in-up">
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+          </span>
+          <span className="text-xs font-semibold tracking-wide uppercase text-slate-500 dark:text-slate-400">
+            Updated for ES2025
+          </span>
+        </div>
+
+        {/* Hero Heading */}
+        <h2 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 leading-tight">
+          Master JavaScript <br className="hidden md:block" />
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-yellow-500 to-orange-600 dark:from-yellow-400 dark:to-orange-500">
+            The Modern Way
+          </span>
         </h2>
 
-        <p className="text-gray-600 dark:text-gray-400 max-w-2xl">
-          Learn JavaScript from basic fundamentals to modern ES6+ features,
-          with real examples and hands-on practice built directly into this
-          learning site.
+        {/* Subtext */}
+        <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-2xl mb-10 leading-relaxed">
+          From basic fundamentals to advanced architectural patterns.
+          Build real-world projects with our interactive, hands-on learning platform designed for
+          <span className="text-slate-900 dark:text-slate-200 font-medium"> serious developers.</span>
         </p>
+
+        {/* Call to Action Buttons */}
+        <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+          <button className="px-8 py-3.5 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold text-sm hover:-translate-y-0.5 transition-transform shadow-lg shadow-slate-900/20 dark:shadow-white/10">
+            Start Learning Now
+          </button>
+          <button className="px-8 py-3.5 rounded-xl bg-white dark:bg-slate-900 text-slate-900 dark:text-white border border-slate-200 dark:border-slate-800 font-bold text-sm hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+            View Documentation
+          </button>
+        </div>
+
       </main>
 
       {/* Footer */}
-      <Footer />
+      <div className="relative z-10">
+        <Footer />
+      </div>
 
     </div>
   );
