@@ -1,19 +1,29 @@
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+
 export default function App() {
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex items-center justify-center">
-      <div className="text-center space-y-4">
-        <h1 className="text-4xl font-bold">
-          JavaScript Master Tutorial
-        </h1>
+    <div className="min-h-screen flex flex-col bg-white text-gray-900 dark:bg-slate-950 dark:text-slate-100">
 
-        <p className="text-slate-400">
-          Learn JavaScript from 0 to Advanced (ES6+) with Real Examples and Practice
-        </p>
+      {/* Top Navigation */}
+      <Navbar />
 
-        <p className="text-sm text-slate-500">
-          By Ajay Duraisamy
+      {/* Main Content */}
+      <main className="flex-1 p-6">
+        <h2 className="text-3xl font-semibold mb-2">
+          Welcome to JavaScript Master Tutorial
+        </h2>
+
+        <p className="text-gray-600 dark:text-gray-400 max-w-2xl">
+          Learn JavaScript from basic fundamentals to modern ES6+ features,
+          with real examples and hands-on practice built directly into this
+          learning site.
         </p>
-      </div>
+      </main>
+
+      {/* Footer */}
+      <Footer />
+
     </div>
   );
 }
