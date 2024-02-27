@@ -1,7 +1,17 @@
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
-export default function App() {
+// Pages
+import Intro from "./pages/Intro";
+import Lesson1 from "./pages/Lesson1";
+import Lesson2 from "./pages/Lesson2";
+import Lesson3 from "./pages/Lesson3";
+// Import all other lessons similarly...
+
+// Landing Page Component (your original hero)
+function LandingPage() {
   return (
     <div className="relative min-h-screen flex flex-col bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100 overflow-hidden font-sans selection:bg-yellow-500/30">
 
@@ -46,12 +56,12 @@ export default function App() {
 
         {/* Call to Action Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-          <button className="px-8 py-3.5 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold text-sm hover:-translate-y-0.5 transition-transform shadow-lg shadow-slate-900/20 dark:shadow-white/10">
+          <a href="/intro" className="px-8 py-3.5 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold text-sm hover:-translate-y-0.5 transition-transform shadow-lg shadow-slate-900/20 dark:shadow-white/10 text-center">
             Start Learning Now
-          </button>
-          <button className="px-8 py-3.5 rounded-xl bg-white dark:bg-slate-900 text-slate-900 dark:text-white border border-slate-200 dark:border-slate-800 font-bold text-sm hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+          </a>
+          <a href="/intro" className="px-8 py-3.5 rounded-xl bg-white dark:bg-slate-900 text-slate-900 dark:text-white border border-slate-200 dark:border-slate-800 font-bold text-sm hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors text-center">
             View Documentation
-          </button>
+          </a>
         </div>
 
       </main>
@@ -62,5 +72,29 @@ export default function App() {
       </div>
 
     </div>
+  );
+}
+
+// Main App Component with Router
+export default function App() {
+  return (
+    <Router>
+      <Toaster position="top-right" />
+
+      <Routes>
+        {/* Landing Page Route */}
+        <Route path="/" element={<LandingPage />} />
+
+        {/* Lessons Routes */}
+        <Route path="/intro" element={<Intro />} />
+        <Route path="/lesson1" element={<Lesson1 />} />
+        <Route path="/lesson2" element={<Lesson2 />} />
+        <Route path="/lesson3" element={<Lesson3 />} />
+        {/* Add routes for all other lessons */}
+
+        {/* Redirect to home if route not found */}
+        <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
+    </Router>
   );
 }
