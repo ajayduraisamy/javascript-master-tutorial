@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import LessonSidebar from '../components/LessonSidebar';
-import {
-    Check, Copy, Play, AlertCircle, Code, Zap, Type,
-    Hash, MessageSquare, CheckCircle, Target, ArrowRight,
-    ArrowLeft, Terminal
+import { 
+    Check, Copy, Play, AlertCircle, Code, Zap, Type, 
+    Hash, MessageSquare, CheckCircle, Target, ArrowRight, 
+    ArrowLeft, Terminal 
 } from 'lucide-react';
 
 export default function Lesson1() {
     const [copied, setCopied] = useState(false);
     const [output, setOutput] = useState('');
     const [showSolution, setShowSolution] = useState(false);
+    const [userCode, setUserCode] = useState('');
+    const [practiceOutput, setPracticeOutput] = useState('');
+
 
     // 1. Defined the Solution Code here
     const solutionCode = `// Solution:
@@ -49,6 +52,34 @@ console.log(typeof isStudent);// "boolean"`,
         setCopied(true);
         setTimeout(() => setCopied(false), 2000);
     };
+    const runPracticeCode = () => {
+        try {
+            const logs = [];
+            const originalLog = console.log;
+
+            console.log = (...args) => {
+                logs.push(args.join(' '));
+            };
+
+            eval(userCode); // 🔥 RUN USER CODE
+
+            console.log = originalLog;
+
+            if (logs.length === 0) {
+                setPracticeOutput(" Code ran successfully (no console output)");
+            } else {
+                setPracticeOutput(logs.join("\n"));
+            }
+        } catch (error) {
+            setPracticeOutput(" Error: " + error.message);
+        }
+    };
+
+    const clearPractice = () => {
+        setUserCode('');
+        setPracticeOutput('');
+    };
+
 
     const runCode = (code) => {
         try {
@@ -61,7 +92,7 @@ console.log(typeof isStudent);// "boolean"`,
             // Note: eval is used here for educational demonstration only
             // In a real production app, use a sandboxed environment
             eval(code);
-
+            
             console.log = originalLog;
             setOutput(logs.join('\n'));
         } catch (error) {
@@ -87,7 +118,7 @@ console.log(typeof isStudent);// "boolean"`,
             {/* Main Content Area */}
             <main className="transition-all duration-300 w-full lg:pl-80">
                 <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
-
+                    
                     {/* Header */}
                     <div className="mb-10 animate-in fade-in slide-in-from-bottom-4 duration-500">
                         <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm text-slate-500 dark:text-slate-400 mb-4 font-mono uppercase tracking-wide">
@@ -182,7 +213,7 @@ console.log(typeof isStudent);// "boolean"`,
                                     </button>
                                 </div>
                             </div>
-
+                            
                             <div className="relative">
                                 <pre className="p-6 overflow-x-auto text-sm md:text-base font-mono leading-relaxed text-slate-300">
                                     <code>{codeExamples.variables}</code>
@@ -230,7 +261,7 @@ console.log(typeof isStudent);// "boolean"`,
                         </div>
 
                         <div className="bg-[#0f172a] rounded-2xl overflow-hidden border border-slate-800 shadow-xl">
-                            <div className="flex justify-between items-center px-4 py-3 bg-slate-900/50">
+                             <div className="flex justify-between items-center px-4 py-3 bg-slate-900/50">
                                 <span className="text-xs text-slate-500 font-mono">types_example.js</span>
                                 <button
                                     onClick={() => copyToClipboard(codeExamples.dataTypes)}
@@ -265,38 +296,24 @@ console.log(typeof isStudent);// "boolean"`,
                             <div className="bg-slate-900 rounded-2xl p-1 border border-slate-800 shadow-2xl">
                                 <div className="flex justify-between items-center px-4 py-3 border-b border-slate-800 bg-slate-900 rounded-t-xl">
                                     <h4 className="text-slate-400 font-mono text-xs uppercase tracking-wider">Editor</h4>
-
-                                    {/* FIXED: Toggle Button */}
-                                    <button
-                                        onClick={() => setShowSolution(!showSolution)}
-                                        className="group flex items-center gap-2 px-3 py-1.5 rounded-lg bg-yellow-500/10 hover:bg-yellow-500/20 text-yellow-500 transition-all text-xs font-bold border border-yellow-500/20"
-                                    >
-                                        {showSolution ? (
-                                            <>
-                                                <AlertCircle className="w-3.5 h-3.5" />
-                                                <span>Hide Solution</span>
-                                            </>
-                                        ) : (
-                                            <>
-                                                <Zap className="w-3.5 h-3.5 group-hover:fill-current" />
-                                                <span>Show Solution</span>
-                                            </>
-                                        )}
-                                    </button>
+                                    
+                                
                                 </div>
 
                                 <textarea
+                                    value={userCode}
+                                    onChange={(e) => setUserCode(e.target.value)}
                                     className="w-full h-40 bg-slate-950 text-slate-300 font-mono p-4 resize-none focus:outline-none text-sm md:text-base leading-relaxed"
-                                    placeholder="// Write your code here..."
-                                    defaultValue={`// Exercise:
-// 1. Create a String variable for name
-// 2. Create a Number variable for age
-// 3. Create a Boolean variable for isStudent
-
-`}
+                                    placeholder="// Write your code here...
+// Example:
+// let myName = 'Ajay';
+// let myAge = 24;
+// let isStudent = true;
+// console.log(myName, myAge, isStudent);"
                                 />
 
-                                {/* FIXED: Solution Reveal Area */}
+
+                            
                                 {showSolution && (
                                     <div className="border-t border-slate-800 bg-slate-950/50 animate-in slide-in-from-top-4 duration-300">
                                         <div className="px-4 py-2 bg-green-900/10 border-b border-green-900/20 flex items-center gap-2">
@@ -310,10 +327,37 @@ console.log(typeof isStudent);// "boolean"`,
                                 )}
                             </div>
                         </div>
+                        <div className="flex flex-col md:flex-row gap-4">
 
-                        <button className="w-full md:w-auto px-8 py-3.5 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold hover:transform hover:scale-[1.02] hover:shadow-xl transition-all flex items-center justify-center gap-2">
-                            Run Verification <ArrowRight className="w-4 h-4" />
-                        </button>
+                            {/* RUN BUTTON */}
+                            <button
+                                onClick={runPracticeCode}
+                                className="w-full md:w-auto px-8 py-3.5 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold hover:transform hover:scale-[1.02] hover:shadow-xl transition-all flex items-center justify-center gap-2"
+                            >
+                                Run Verification <ArrowRight className="w-4 h-4" />
+                            </button>
+
+                            {/* CLEAR BUTTON */}
+                            <button
+                                onClick={clearPractice}
+                                className="w-full md:w-auto px-8 py-3.5 rounded-xl border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-bold hover:bg-slate-100 dark:hover:bg-slate-800 transition-all flex items-center justify-center gap-2"
+                            >
+                                Clear Code
+                            </button>
+
+                        </div>
+
+                        {practiceOutput && (
+                            <div className="mt-6 bg-slate-900 p-4 rounded-xl border border-slate-800">
+                                <h4 className="text-sm font-bold mb-2 text-slate-400 uppercase tracking-wide">
+                                    Result
+                                </h4>
+                                <pre className="text-green-400 whitespace-pre-wrap">
+                                    {practiceOutput}
+                                </pre>
+                            </div>
+                        )}
+
                     </div>
 
                     {/* Footer Navigation - Responsive Stack */}

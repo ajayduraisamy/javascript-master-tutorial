@@ -1,4 +1,4 @@
-import React from 'react';
+import { Link } from "react-router-dom";
 import { BookOpen, Code, Zap, Target, CheckCircle, ArrowRight } from 'lucide-react';
 import LessonSidebar from '../components/LessonSidebar';
 
@@ -163,13 +163,16 @@ export default function Intro() {
 
                     {/* Next Steps Button */}
                     <div className="text-center">
-                        <button className="group inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-gradient-to-r from-yellow-500 to-orange-600 text-white font-bold text-lg hover:shadow-2xl hover:shadow-orange-500/30 transition-all duration-300 hover:-translate-y-1">
-                            Start Lesson 1: Variables & Data Types
-                            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                        </button>
+                        <Link to="/lesson1">
+                            <button className="group inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-gradient-to-r from-yellow-500 to-orange-600 text-white font-bold text-lg hover:shadow-2xl hover:shadow-orange-500/30 transition-all duration-300 hover:-translate-y-1">
+                                Start Lesson 1: Variables & Data Types
+                                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                            </button>
+                        </Link>
+
 
                         <p className="mt-4 text-slate-500 dark:text-slate-400">
-                            Estimated completion: 30-40 minutes
+                            All lessons are free and available to everyone. Join the community and get access to exclusive content.
                         </p>
                     </div>
                 </div>
