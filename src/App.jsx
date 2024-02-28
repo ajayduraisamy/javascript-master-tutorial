@@ -10,6 +10,36 @@ import Lesson2 from "./pages/Lesson2";
 import Lesson3 from "./pages/Lesson3";
 // Import all other lessons similarly...
 
+// Main App Component with Router
+export default function App() {
+  return (
+    <Router>
+      <Toaster position="top-right" />
+
+      {/* Global Navbar - Shows on ALL pages */}
+      <Navbar />
+
+      <Routes>
+        {/* Landing Page Route */}
+        <Route path="/" element={<LandingPage />} />
+
+        {/* Lessons Routes */}
+        <Route path="/intro" element={<Intro />} />
+        <Route path="/lesson1" element={<Lesson1 />} />
+        <Route path="/lesson2" element={<Lesson2 />} />
+        <Route path="/lesson3" element={<Lesson3 />} />
+        {/* Add routes for all other lessons */}
+
+        {/* Redirect to home if route not found */}
+        <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
+
+      {/* Global Footer - Shows on ALL pages */}
+      <Footer />
+    </Router>
+  );
+}
+
 // Landing Page Component (your original hero)
 function LandingPage() {
   return (
@@ -22,10 +52,7 @@ function LandingPage() {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-yellow-500/10 dark:bg-yellow-500/5 blur-[120px] rounded-full mix-blend-screen"></div>
       </div>
 
-      {/* Top Navigation */}
-      <Navbar />
-
-      {/* Main Content */}
+      {/* Main Content - Navbar is already rendered globally */}
       <main className="relative z-10 flex-1 flex flex-col items-center justify-center px-6 pt-20 pb-32 text-center max-w-5xl mx-auto w-full">
 
         {/* Pill Badge */}
@@ -65,36 +92,6 @@ function LandingPage() {
         </div>
 
       </main>
-
-      {/* Footer */}
-      <div className="relative z-10">
-        <Footer />
-      </div>
-
     </div>
-  );
-}
-
-// Main App Component with Router
-export default function App() {
-  return (
-    <Router>
-      <Toaster position="top-right" />
-
-      <Routes>
-        {/* Landing Page Route */}
-        <Route path="/" element={<LandingPage />} />
-
-        {/* Lessons Routes */}
-        <Route path="/intro" element={<Intro />} />
-        <Route path="/lesson1" element={<Lesson1 />} />
-        <Route path="/lesson2" element={<Lesson2 />} />
-        <Route path="/lesson3" element={<Lesson3 />} />
-        {/* Add routes for all other lessons */}
-
-        {/* Redirect to home if route not found */}
-        <Route path="*" element={<Navigate to="/" />} />
-      </Routes>
-    </Router>
   );
 }
