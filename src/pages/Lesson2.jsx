@@ -1,41 +1,39 @@
 import React, { useState, useEffect } from 'react';
 import LessonSidebar from '../components/LessonSidebar';
 import {
-    Check, Copy, Play, AlertCircle, Code, Zap, Type,
-    Hash, MessageSquare, CheckCircle, Target, ArrowRight,
-    ArrowLeft, Terminal, Lightbulb, HelpCircle, Info,
-    Sparkles, Award, BookOpen, Key, Lock, Unlock,
-    ChevronRight, ChevronLeft, Eye, EyeOff, RefreshCw,
-    Maximize2, Minimize2, Volume2, VolumeX, Wifi,
-    Battery, BatteryCharging, Smartphone, Monitor,
-    Calculator, Plus, Minus, X, Divide, Percent,
-    Equal, NotEqual, ChevronUp, ChevronDown, ChevronsUp,
-    ChevronsDown, PlusCircle, MinusCircle, XCircle,
-    DivideCircle, Infinity, Pi, FunctionSquare,
-    Brackets, Parentheses, Braces, Asterisk,
-    Slash, Backslash, Ampersand, AtSign, Hash as HashIcon,
-    DollarSign, Euro, PoundSterling, Bitcoin,
-    TrendingUp, TrendingDown, BarChart3, PieChart,
-    LineChart, Activity, Cpu, Server, HardDrive,
-    Database, MemoryStick, Chip, Motherboard,
-    CircuitBoard, Network, Wifi as WifiIcon,
-    Bluetooth, Battery as BatteryIcon, Power,
-    RotateCw, RotateCcw, Repeat, Repeat1, Repeat2,
-    Shuffle, SkipBack, SkipForward, Play as PlayIcon,
-    Pause, StopCircle, Square, Circle, Triangle,
-    Hexagon, Octagon, Pentagon, Diamond, Octahedron,
-    Dodecahedron, Icosahedron, Cube, Cuboid, Cylinder,
-    Cone, Pyramid, Sphere, Torus, Celestial, Atom,
-    Biohazard, Radiation, Radioactive, Skull, Ghost,
-    Alien, Robot, Gamepad2, Joystick, Dice1, Dice2,
-    Dice3, Dice4, Dice5, Dice6, ChessKing, ChessQueen,
-    ChessRook, ChessBishop, ChessKnight, ChessPawn,
-    Crown, Gem, Diamond as DiamondIcon, Trophy,
-    Medal, Award as AwardIcon, Gift, Package, Box,
-    Container, Palette, PaintBucket, Brush, PenTool,
-    Scissors, Ruler, Compass, SquareRoot, Sigma,
-    Pi as PiIcon, Infinity as InfinityIcon
-} from 'lucide-react';
+    Check,
+    Copy,
+    Play,
+    AlertCircle,
+    Code,
+    Zap,
+    Type,
+    Hash,
+    MessageSquare,
+    CheckCircle,
+    Target,
+    ArrowRight,
+    ArrowLeft,
+    Terminal,
+    Lightbulb,
+    HelpCircle,
+    Info,
+    Sparkles,
+    Award,
+    BookOpen,
+    ChevronRight,
+    ChevronLeft,
+    Eye,
+    EyeOff,
+    RefreshCw,
+    Calculator,
+    Equal,
+    Wifi,
+    BatteryCharging,
+    Braces   
+} from "lucide-react";
+
+
 
 export default function Lesson2() {
     const [copied, setCopied] = useState(false);
@@ -148,12 +146,12 @@ console.log("Can withdraw?", hasAccount && balance > 0); // true`
             console.log = originalLog;
 
             if (logs.length === 0) {
-                setPracticeOutput("✅ Code executed successfully (no console output)");
+                setPracticeOutput(" Code executed successfully (no console output)");
             } else {
-                setPracticeOutput("✅ Output:\n" + logs.join("\n"));
+                setPracticeOutput(" Output:\n" + logs.join("\n"));
             }
         } catch (error) {
-            setPracticeOutput("❌ Error: " + error.message);
+            setPracticeOutput(" Error: " + error.message);
         }
     };
 
@@ -178,7 +176,7 @@ console.log("Can withdraw?", hasAccount && balance > 0); // true`
             console.log = originalLog;
             setOutput(logs.join('\n'));
         } catch (error) {
-            setOutput(`❌ Error: ${error.message}`);
+            setOutput(` Error: ${error.message}`);
         }
     };
 
@@ -386,16 +384,7 @@ let age = 0 ?? 25;               // 0 (0 is not null/undefined)`}
 
             <main className="relative z-10 transition-all duration-300 w-full lg:pl-80">
                 <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
-                    {/* Floating Progress Indicator */}
-                    <div className="fixed top-24 right-8 z-20 hidden lg:block">
-                        <div className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl rounded-2xl p-4 shadow-2xl border border-slate-200 dark:border-slate-800">
-                            <div className="text-xs font-bold text-slate-500 dark:text-slate-400 mb-2">PROGRESS</div>
-                            <div className="w-32 h-2 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
-                                <div className="h-full w-2/23 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full animate-pulse"></div>
-                            </div>
-                            <div className="text-xs text-slate-500 dark:text-slate-400 mt-2">Lesson 2 of 23</div>
-                        </div>
-                    </div>
+                    
 
                     {/* Header with Animation */}
                     <div className="mb-12 animate-in fade-in slide-in-from-bottom-6 duration-700">
@@ -413,7 +402,7 @@ let age = 0 ?? 25;               // 0 (0 is not null/undefined)`}
                             <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 animate-gradient">
                                 {typingEffect}
                             </span>
-                            <span className="animate-pulse">▋</span>
+                            
                         </h1>
 
                         <p className="text-xl md:text-2xl text-slate-600 dark:text-slate-400 mb-8 max-w-4xl leading-relaxed font-light">
@@ -629,7 +618,9 @@ let age = 0 ?? 25;               // 0 (0 is not null/undefined)`}
                                     </li>
                                     <li className="flex items-center gap-2">
                                         <div className="w-2 h-2 rounded-full bg-purple-500"></div>
-                                        <span>Comparison operations (`>`, <, ==, ===`)</span>
+                                        <span>
+                                            Comparison operations ({'>'}, {'<'}, ==, ===)
+                                        </span>
                                     </li>
                                     <li className="flex items-center gap-2">
                                         <div className="w-2 h-2 rounded-full bg-green-500"></div>
