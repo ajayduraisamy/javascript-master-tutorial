@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-    /* You can add custom premium colors here if you want */
+    
     --color-brand: #ffaa00;
 }
 

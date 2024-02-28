@@ -21,14 +21,14 @@ export default function Intro() {
 
     return (
         <div className="min-h-screen bg-gradient-to-b from-white to-slate-50 dark:from-slate-950 dark:to-slate-900">
-            {/* Sidebar */}
+        
             <LessonSidebar currentLesson="intro" />
 
-            {/* Main Content */}
+        
             <main className="pl-0 lg:pl-72 transition-all duration-300">
                 <div className="max-w-4xl mx-auto px-6 py-12">
 
-                    {/* Hero Header */}
+                
                     <div className="text-center mb-16 animate-fade-in">
                         <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-gradient-to-r from-yellow-100 to-orange-100 dark:from-yellow-900/20 dark:to-orange-900/20 border border-yellow-200 dark:border-yellow-800 mb-6">
                             <BookOpen className="w-4 h-4 text-yellow-600 dark:text-yellow-400" />
@@ -50,7 +50,7 @@ export default function Intro() {
                         </p>
                     </div>
 
-                    {/* Stats Cards */}
+                
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
                         <div className="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-lg hover:shadow-xl transition-shadow">
                             <div className="flex items-center gap-4">
@@ -89,9 +89,9 @@ export default function Intro() {
                         </div>
                     </div>
 
-                    {/* Two Column Layout */}
+                    
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
-                        {/* Learning Objectives */}
+                    
                         <div className="bg-gradient-to-br from-white to-slate-50 dark:from-slate-900 dark:to-slate-950 p-8 rounded-2xl border border-slate-200 dark:border-slate-800">
                             <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
                                 <div className="p-2 rounded-lg bg-gradient-to-r from-yellow-400 to-orange-500">
@@ -110,7 +110,7 @@ export default function Intro() {
                             </ul>
                         </div>
 
-                        {/* Prerequisites */}
+                    
                         <div className="bg-gradient-to-br from-white to-slate-50 dark:from-slate-900 dark:to-slate-950 p-8 rounded-2xl border border-slate-200 dark:border-slate-800">
                             <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
                                 <div className="p-2 rounded-lg bg-gradient-to-r from-blue-400 to-cyan-500">
@@ -130,7 +130,7 @@ export default function Intro() {
                         </div>
                     </div>
 
-                    {/* How to Use This Tutorial */}
+                    
                     <div className="bg-gradient-to-r from-yellow-50 to-orange-50 dark:from-yellow-900/10 dark:to-orange-900/10 border border-yellow-200 dark:border-yellow-800 rounded-2xl p-8 mb-16">
                         <h2 className="text-2xl font-bold mb-6 text-slate-900 dark:text-white">How to Use This Tutorial</h2>
 
@@ -161,7 +161,7 @@ export default function Intro() {
                         </div>
                     </div>
 
-                    {/* Next Steps Button */}
+                    
                     <div className="text-center">
                         <Link to="/lesson1">
                             <button className="group inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-gradient-to-r from-yellow-500 to-orange-600 text-white font-bold text-lg hover:shadow-2xl hover:shadow-orange-500/30 transition-all duration-300 hover:-translate-y-1">

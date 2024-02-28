@@ -10,17 +10,17 @@ import Lesson2 from "./pages/Lesson2";
 import Lesson3 from "./pages/Lesson3";
 // Import all other lessons similarly...
 
-// Main App Component with Router
+
 export default function App() {
   return (
     <Router>
       <Toaster position="top-right" />
 
-      {/* Global Navbar - Shows on ALL pages */}
+    
       <Navbar />
 
       <Routes>
-        {/* Landing Page Route */}
+      
         <Route path="/" element={<LandingPage />} />
 
         {/* Lessons Routes */}
@@ -28,34 +28,32 @@ export default function App() {
         <Route path="/lesson1" element={<Lesson1 />} />
         <Route path="/lesson2" element={<Lesson2 />} />
         <Route path="/lesson3" element={<Lesson3 />} />
-        {/* Add routes for all other lessons */}
-
-        {/* Redirect to home if route not found */}
+      
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
 
-      {/* Global Footer - Shows on ALL pages */}
+      
       <Footer />
     </Router>
   );
 }
 
-// Landing Page Component (your original hero)
+
 function LandingPage() {
   return (
     <div className="relative min-h-screen flex flex-col bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100 overflow-hidden font-sans selection:bg-yellow-500/30">
 
-      {/* Background Pattern - The "Tech" Vibe */}
+  
       <div className="fixed inset-0 z-0 pointer-events-none">
         <div className="absolute inset-0 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] dark:bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
-        {/* Subtle top glow */}
+  
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-yellow-500/10 dark:bg-yellow-500/5 blur-[120px] rounded-full mix-blend-screen"></div>
       </div>
 
-      {/* Main Content - Navbar is already rendered globally */}
+
       <main className="relative z-10 flex-1 flex flex-col items-center justify-center px-6 pt-20 pb-32 text-center max-w-5xl mx-auto w-full">
 
-        {/* Pill Badge */}
+      
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 mb-8 shadow-sm animate-fade-in-up">
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
@@ -66,7 +64,7 @@ function LandingPage() {
           </span>
         </div>
 
-        {/* Hero Heading */}
+      
         <h2 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 leading-tight">
           Master JavaScript <br className="hidden md:block" />
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-yellow-500 to-orange-600 dark:from-yellow-400 dark:to-orange-500">
@@ -74,14 +72,14 @@ function LandingPage() {
           </span>
         </h2>
 
-        {/* Subtext */}
+    
         <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-2xl mb-10 leading-relaxed">
           From basic fundamentals to advanced architectural patterns.
           Build real-world projects with our interactive, hands-on learning platform designed for
           <span className="text-slate-900 dark:text-slate-200 font-medium"> serious developers.</span>
         </p>
 
-        {/* Call to Action Buttons */}
+      
         <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
           <a href="/intro" className="px-8 py-3.5 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold text-sm hover:-translate-y-0.5 transition-transform shadow-lg shadow-slate-900/20 dark:shadow-white/10 text-center">
             Start Learning Now
