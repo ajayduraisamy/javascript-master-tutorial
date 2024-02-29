@@ -1,122 +1,25 @@
-import React, { useState, useEffect } from 'react';
-import LessonSidebar from '../components/LessonSidebar';
 import {
-    Check,
-    Copy,
-    Play,
-    AlertCircle,
-    Code,
-    Zap,
-    CheckCircle,
-    Target,
     ArrowRight,
-    ArrowLeft,
-    Terminal,
-    Lightbulb,
-    Info,
-    Sparkles,
     Award,
     BookOpen,
-    ChevronRight,
-    ChevronLeft,
-    Eye,
-    EyeOff,
-    RefreshCw,
-    Wifi,
-    Battery,
-    Smartphone,
-    Monitor,
     Calculator,
-    Plus,
-    Minus,
-    X as XIcon,
-    Divide,
-    Percent,
-    Equal,
-    ChevronsUp,
-    ChevronsDown,
-    PlusCircle,
-    MinusCircle,
-    XCircle,
-    DivideCircle,
-    Infinity,
-    Pi,
+    Check,
+    CheckCircle,
+    ChevronLeft,
+    ChevronRight,
+    Code,
+    Copy,
+    Eye,
     FunctionSquare,
-    DollarSign,
-    TrendingUp,
-    TrendingDown,
-    BarChart3,
-    PieChart,
-    LineChart,
-    Activity,
-    Cpu,
-    Server,
-    HardDrive,
-    Database,
-    MemoryStick,
-    Chip,
-    Network,
-    Bluetooth,
-    Power,
-    RotateCw,
-    RotateCcw,
-    Repeat,
-    Shuffle,
-    SkipBack,
-    SkipForward,
-    Pause,
-    StopCircle,
-    Square,
-    Circle,
-    Triangle,
-    Hexagon,
-    Octagon,
-    Pentagon,
-    Diamond,
-    Cube,
-    Cylinder,
-    Cone,
-    Pyramid,
-    Sphere,
-    Atom,
-    Biohazard,
-    Radiation,
-    Skull,
-    Ghost,
-    Gamepad2,
-    Joystick,
-    Dice1,
-    Dice2,
-    Dice3,
-    Dice4,
-    Dice5,
-    Dice6,
-    ChessKing,
-    ChessQueen,
-    ChessRook,
-    ChessBishop,
-    ChessKnight,
-    ChessPawn,
-    Crown,
-    Gem,
-    Trophy,
-    Medal,
-    Gift,
-    Package,
-    Box,
-    Palette,
-    PaintBucket,
-    Brush,
-    PenTool,
-    Scissors,
-    Ruler,
-    Compass,
-    SquareRoot,
-    Sigma,
     GitBranch,
-    GitMerge,
-    GitPullRequest,
+    Play,
+    RefreshCw,
+    Target,
+    Terminal,
+    X as XIcon
 } from "lucide-react";
+import { useEffect, useState } from 'react';
+import LessonSidebar from '../components/LessonSidebar';
 
 
 export default function Lesson3() {
@@ -343,7 +246,7 @@ console.log(welcomeMessage);`
         {
             id: 'switch',
             name: 'Switch Statements',
-            icon: GitCompare,
+            icon: GitBranch,
             color: 'text-purple-500',
             bg: 'bg-purple-500/10',
             border: 'border-purple-500/20',
@@ -354,7 +257,7 @@ console.log(welcomeMessage);`
         {
             id: 'ternary',
             name: 'Ternary Operator',
-            icon: CodeIcon,
+            icon: Code,
             color: 'text-green-500',
             bg: 'bg-green-500/10',
             border: 'border-green-500/20',
@@ -410,7 +313,7 @@ console.log(welcomeMessage);`
 
                 <div className="bg-gradient-to-r from-purple-50 to-pink-50 dark:from-purple-900/10 dark:to-pink-900/10 p-6 rounded-2xl border border-purple-200 dark:border-purple-800">
                     <h3 className="text-xl font-bold mb-3 flex items-center gap-2">
-                        <CodeIcon className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+                        <Code className="w-5 h-5 text-purple-600 dark:text-purple-400" />
                         Truthy and Falsy Values
                     </h3>
                     <p className="text-slate-700 dark:text-slate-300 mb-3">
@@ -601,8 +504,8 @@ function processUserOld(user) {
                                     key={tab}
                                     onClick={() => setActiveTab(tab)}
                                     className={`px-6 py-3 rounded-xl font-bold text-sm transition-all duration-300 flex items-center gap-2 ${activeTab === tab
-                                            ? 'bg-gradient-to-r from-emerald-500 to-blue-600 text-white shadow-lg shadow-blue-500/30'
-                                            : 'bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
+                                        ? 'bg-gradient-to-r from-emerald-500 to-blue-600 text-white shadow-lg shadow-blue-500/30'
+                                        : 'bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
                                         }`}
                                 >
                                     {tab === 'theory' && <BookOpen className="w-4 h-4" />}
@@ -632,8 +535,8 @@ function processUserOld(user) {
                                     key={flow.id}
                                     onClick={() => setSelectedFlow(flow.id)}
                                     className={`p-4 rounded-2xl border-2 transition-all duration-300 text-left ${selectedFlow === flow.id
-                                            ? `${flow.border} ${flow.bg} scale-105 shadow-xl`
-                                            : 'border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700'
+                                        ? `${flow.border} ${flow.bg} scale-105 shadow-xl`
+                                        : 'border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700'
                                         }`}
                                 >
                                     <div className="flex items-center gap-3 mb-3">
