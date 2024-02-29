@@ -195,13 +195,13 @@ console.log(welcomeMessage);`
             console.log = originalLog;
 
             if (logs.length === 0) {
-                setPracticeOutput("✅ Code executed successfully (no console output)");
+                setPracticeOutput(" Code executed successfully (no console output)");
             } else {
-                setPracticeOutput("✅ Output:\n" + logs.join("\n"));
+                setPracticeOutput(" Output:\n" + logs.join("\n"));
             }
             setAttempts(attempts + 1);
         } catch (error) {
-            setPracticeOutput("❌ Error: " + error.message);
+            setPracticeOutput(" Error: " + error.message);
         }
     };
 
@@ -226,7 +226,7 @@ console.log(welcomeMessage);`
             console.log = originalLog;
             setOutput(logs.join('\n'));
         } catch (error) {
-            setOutput(`❌ Error: ${error.message}`);
+            setOutput(` Error: ${error.message}`);
         }
     };
 
@@ -347,7 +347,7 @@ console.log(welcomeMessage);`
             <div className="space-y-6">
                 <div className="bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-emerald-900/10 dark:to-teal-900/10 p-6 rounded-2xl border border-emerald-200 dark:border-emerald-800">
                     <h3 className="text-xl font-bold mb-3 flex items-center gap-2">
-                        <TerminalIcon className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
+                        <Terminal className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
                         Code Patterns
                     </h3>
 
@@ -445,18 +445,9 @@ function processUserOld(user) {
 
             <main className="relative z-10 transition-all duration-300 w-full lg:pl-80">
                 <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
-                    {/* Floating Progress Indicator */}
-                    <div className="fixed top-24 right-8 z-20 hidden lg:block">
-                        <div className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl rounded-2xl p-4 shadow-2xl border border-slate-200 dark:border-slate-800">
-                            <div className="text-xs font-bold text-slate-500 dark:text-slate-400 mb-2">PROGRESS</div>
-                            <div className="w-32 h-2 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
-                                <div className="h-full w-3/23 bg-gradient-to-r from-emerald-400 to-blue-500 rounded-full animate-pulse"></div>
-                            </div>
-                            <div className="text-xs text-slate-500 dark:text-slate-400 mt-2">Lesson 3 of 23</div>
-                        </div>
-                    </div>
+                    
 
-                    {/* Header with Animation */}
+                    
                     <div className="mb-12 animate-in fade-in slide-in-from-bottom-6 duration-700">
                         <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm text-slate-500 dark:text-slate-400 mb-4 font-mono">
                             <span className="px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 font-bold animate-pulse">
@@ -472,7 +463,7 @@ function processUserOld(user) {
                             <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 via-blue-500 to-purple-500 animate-gradient">
                                 {typingEffect}
                             </span>
-                            <span className="animate-pulse">▋</span>
+                            
                         </h1>
 
                         <p className="text-xl md:text-2xl text-slate-600 dark:text-slate-400 mb-8 max-w-4xl leading-relaxed font-light">
