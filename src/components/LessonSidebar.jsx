@@ -14,7 +14,7 @@ const lessons = [
     { id: 'lesson2', title: 'Operators & Expressions', icon: Code, module: 'fundamentals', completed: false },
     { id: 'lesson3', title: 'Control Flow', icon: Repeat, module: 'fundamentals', completed: false },
     { id: 'lesson4', title: 'Loops', icon: Repeat, module: 'fundamentals', completed: false },
-    { id: 'lesson5', title: 'Functions Basics', icon: Code, module: 'fundamentals', completed: false }, // Changed from Function
+    { id: 'lesson5', title: 'Functions Basics', icon: Code, module: 'fundamentals', completed: false }, 
     { id: 'lesson6', title: 'Scope & Hoisting', icon: Box, module: 'fundamentals', completed: false },
     { id: 'lesson7', title: 'Arrays', icon: Database, module: 'fundamentals', completed: false },
 
