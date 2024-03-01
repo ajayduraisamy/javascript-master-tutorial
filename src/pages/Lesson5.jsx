@@ -570,7 +570,7 @@ function createMessage(message) {
                             <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-indigo-500 to-purple-500 animate-gradient">
                                 {typingEffect}
                             </span>
-                            <span className="animate-pulse">▋</span>
+                        
                         </h1>
 
                         <p className="text-xl md:text-2xl text-slate-600 dark:text-slate-400 mb-8 max-w-4xl leading-relaxed font-light">
