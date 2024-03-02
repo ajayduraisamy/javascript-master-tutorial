@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import {
     CheckSquare, Code, Play, Terminal, Lightbulb,
     AlertTriangle, ChevronRight, Copy, RotateCcw,
-    Hash, Grid, List, Filter
+    Hash, Grid, List, Filter, Zap, X, RefreshCw,
 } from 'lucide-react';
 import LessonSidebar from '../components/LessonSidebar';
 
