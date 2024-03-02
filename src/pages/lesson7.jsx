@@ -536,6 +536,12 @@ numbers.forEach(num => console.log(num));`);
 
                     {/* Navigation */}
                     <div className="max-w-6xl mx-auto mt-12 pt-8 border-t border-slate-200 dark:border-slate-800 flex justify-between">
+        
+                        <a className="px-6 py-3 border border-slate-300 dark:border-slate-700 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors flex items-center gap-2" href="/lesson6">
+                                <ChevronLeft className="w-5 h-5" />
+                                Previous
+                            </a>
+                    
                         <button className="px-6 py-3 border border-slate-300 dark:border-slate-700 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors flex items-center gap-2">
                             <ChevronRight className="w-5 h-5 rotate-180" />
                             Previous: Scope & Hoisting
