@@ -4,7 +4,7 @@ import {
     AlertTriangle, ChevronRight, Copy, RotateCcw,
     Hash, Grid, List, Filter
 } from 'lucide-react';
-import LessonSidebar from './LessonSidebar';
+import LessonSidebar from '../components/LessonSidebar';
 
 export default function Lesson7() {
     const [activeTab, setActiveTab] = useState('content');
