@@ -2,35 +2,55 @@ import React, { useState } from 'react';
 import {
     CheckSquare, Code, Play, Terminal, Lightbulb,
     AlertTriangle, ChevronRight, Copy, RotateCcw,
-    Hash, Grid, List, Filter, Zap, X, RefreshCw,
+    Hash, Grid, List, Filter, Zap, X, RefreshCw, ChevronLeft,
+    Search, SortAsc, Trash2, Plus, Minus, Layers, BarChart,
+    ArrowUpDown, Split, Merge, BookOpen, Brain, Timer
 } from 'lucide-react';
 import LessonSidebar from '../components/LessonSidebar';
 
 export default function Lesson7() {
     const [activeTab, setActiveTab] = useState('content');
-    const [code, setCode] = useState(`// Arrays are ordered collections of items
+    const [code, setCode] = useState(`// === ARRAY FUNDAMENTALS ===
+// 1. Creating Arrays
 const fruits = ['apple', 'banana', 'orange'];
-console.log(fruits[0]); // 'apple'
-
-// Arrays can hold mixed data types
-const mixedArray = [1, 'hello', true, { name: 'John' }];
-
-// Common array methods
 const numbers = [1, 2, 3, 4, 5];
+const mixed = [1, 'hello', true, { name: 'John' }];
 
-// map() - transform each element
+// 2. Accessing Elements
+console.log(fruits[0]);      // 'apple' (zero-based)
+console.log(fruits.length);  // 3
+
+// === ESSENTIAL METHODS ===
+// 3. Transformation Methods
 const doubled = numbers.map(num => num * 2);
+console.log('Map:', doubled);
 
-// filter() - select elements based on condition
-const evenNumbers = numbers.filter(num => num % 2 === 0);
+const evens = numbers.filter(num => num % 2 === 0);
+console.log('Filter:', evens);
 
-// reduce() - accumulate values
 const sum = numbers.reduce((total, num) => total + num, 0);
+console.log('Reduce:', sum);
 
-// forEach() - execute function for each element
-numbers.forEach(num => console.log(num));`);
+// 4. Iteration
+numbers.forEach(num => console.log('ForEach:', num));
+
+// 5. Searching
+const found = fruits.find(fruit => fruit.startsWith('b'));
+console.log('Find:', found);
+
+const hasApple = fruits.includes('apple');
+console.log('Includes:', hasApple);
+
+// 6. Adding/Removing
+fruits.push('grape');     // Add to end
+fruits.pop();             // Remove from end
+fruits.unshift('kiwi');   // Add to start
+fruits.shift();           // Remove from start
+
+console.log('Modified:', fruits);`);
 
     const [output, setOutput] = useState('');
+    const [currentMethod, setCurrentMethod] = useState(0);
     const [currentExercise, setCurrentExercise] = useState(0);
 
     const runCode = () => {
@@ -42,26 +62,50 @@ numbers.forEach(num => console.log(num));`);
                 originalLog(...args);
             };
 
-            // Safe eval for demonstration
             const safeEval = `
-        const fruits = ['apple', 'banana', 'orange'];
-        console.log('First fruit:', fruits[0]);
-        
-        const numbers = [1, 2, 3, 4, 5];
-        console.log('Original array:', numbers);
-        
-        const doubled = numbers.map(num => num * 2);
-        console.log('Doubled:', doubled);
-        
-        const evenNumbers = numbers.filter(num => num % 2 === 0);
-        console.log('Even numbers:', evenNumbers);
-        
-        const sum = numbers.reduce((total, num) => total + num, 0);
-        console.log('Sum:', sum);
-        
-        console.log('ForEach output:');
-        numbers.forEach(num => console.log('Number:', num));
-      `;
+                // Creating Arrays
+                const fruits = ['apple', 'banana', 'orange'];
+                const numbers = [1, 2, 3, 4, 5];
+                
+                console.log('=== ARRAY BASICS ===');
+                console.log('Fruits array:', fruits);
+                console.log('First fruit:', fruits[0]);
+                console.log('Array length:', fruits.length);
+                
+                // Transformation Methods
+                console.log('\\n=== TRANSFORMATION ===');
+                const doubled = numbers.map(num => num * 2);
+                console.log('Map (doubled):', doubled);
+                
+                const evens = numbers.filter(num => num % 2 === 0);
+                console.log('Filter (evens):', evens);
+                
+                const sum = numbers.reduce((total, num) => total + num, 0);
+                console.log('Reduce (sum):', sum);
+                
+                // Searching
+                console.log('\\n=== SEARCHING ===');
+                const found = fruits.find(fruit => fruit.startsWith('b'));
+                console.log('Find (starts with b):', found);
+                
+                const hasApple = fruits.includes('apple');
+                console.log('Includes apple?', hasApple);
+                
+                const bananaIndex = fruits.indexOf('banana');
+                console.log('Index of banana:', bananaIndex);
+                
+                // Iteration
+                console.log('\\n=== ITERATION ===');
+                console.log('ForEach output:');
+                numbers.forEach(num => console.log('  Number:', num));
+                
+                // Every/Some
+                const allPositive = numbers.every(num => num > 0);
+                console.log('Every (positive)?', allPositive);
+                
+                const hasEven = numbers.some(num => num % 2 === 0);
+                console.log('Some (even)?', hasEven);
+            `;
 
             eval(safeEval);
             console.log = originalLog;
@@ -71,59 +115,353 @@ numbers.forEach(num => console.log(num));`);
         }
     };
 
-    const exercises = [
+    // ALL ARRAY METHODS with detailed explanations
+    const arrayMethods = [
         {
-            title: "Create and Access Arrays",
-            description: "Create an array of programming languages and access elements",
-            starterCode: `const languages = []; // Add 3 programming languages\nconsole.log(languages[0]); // Should print first language\nconsole.log(languages.length); // Should print 3`,
-            solution: `const languages = ['JavaScript', 'Python', 'Java'];
-console.log(languages[0]); // 'JavaScript'
-console.log(languages.length); // 3`,
-            hint: "Arrays start counting from 0. The length property returns number of elements."
+            category: "Transformation",
+            methods: [
+                {
+                    name: "map()",
+                    icon: <Layers className="w-4 h-4 text-blue-500" />,
+                    description: "Creates a new array by applying a function to each element",
+                    syntax: "array.map(callback(element, index, array))",
+                    example: "const doubled = [1,2,3].map(x => x * 2); // [2,4,6]",
+                    useCase: "When you need to transform each element in an array"
+                },
+                {
+                    name: "filter()",
+                    icon: <Filter className="w-4 h-4 text-green-500" />,
+                    description: "Creates new array with elements that pass a test",
+                    syntax: "array.filter(callback(element, index, array))",
+                    example: "const evens = [1,2,3,4].filter(x => x % 2 === 0); // [2,4]",
+                    useCase: "When you need to select elements based on a condition"
+                },
+                {
+                    name: "reduce()",
+                    icon: <BarChart className="w-4 h-4 text-purple-500" />,
+                    description: "Executes a reducer function to produce a single value",
+                    syntax: "array.reduce(callback(accumulator, element, index, array), initialValue)",
+                    example: "const sum = [1,2,3].reduce((acc, x) => acc + x, 0); // 6",
+                    useCase: "When you need to accumulate values (sum, average, etc.)"
+                },
+                {
+                    name: "flat()",
+                    icon: <Merge className="w-4 h-4 text-orange-500" />,
+                    description: "Flattens nested arrays to specified depth",
+                    syntax: "array.flat(depth)",
+                    example: "[1,[2,[3]]].flat(2); // [1,2,3]",
+                    useCase: "When working with nested arrays"
+                },
+                {
+                    name: "flatMap()",
+                    icon: <Split className="w-4 h-4 text-pink-500" />,
+                    description: "Maps then flattens the result by one level",
+                    syntax: "array.flatMap(callback(element, index, array))",
+                    example: "['hello', 'world'].flatMap(x => x.split('')); // ['h','e','l','l','o','w','o','r','l','d']",
+                    useCase: "When map produces arrays that need flattening"
+                }
+            ]
         },
         {
-            title: "Array Methods Practice",
-            description: "Use array methods to transform data",
-            starterCode: `const numbers = [10, 20, 30, 40, 50];
-// Use map to add 5 to each number
-// Use filter to get numbers greater than 25
-// Use reduce to calculate average`,
-            solution: `const numbers = [10, 20, 30, 40, 50];
-const plusFive = numbers.map(num => num + 5);
-const greaterThan25 = numbers.filter(num => num > 25);
-const average = numbers.reduce((sum, num) => sum + num, 0) / numbers.length;
+            category: "Searching & Finding",
+            methods: [
+                {
+                    name: "find()",
+                    icon: <Search className="w-4 h-4 text-red-500" />,
+                    description: "Returns first element that satisfies condition",
+                    syntax: "array.find(callback(element, index, array))",
+                    example: "const user = users.find(u => u.id === 123);",
+                    useCase: "When you need to find a specific element"
+                },
+                {
+                    name: "findIndex()",
+                    icon: <Search className="w-4 h-4 text-red-400" />,
+                    description: "Returns index of first element that satisfies condition",
+                    syntax: "array.findIndex(callback(element, index, array))",
+                    example: "const index = users.findIndex(u => u.age > 18);",
+                    useCase: "When you need the index of a specific element"
+                },
+                {
+                    name: "includes()",
+                    icon: <Plus className="w-4 h-4 text-green-600" />,
+                    description: "Checks if array contains a value",
+                    syntax: "array.includes(value, fromIndex)",
+                    example: "['a','b','c'].includes('b'); // true",
+                    useCase: "When checking for existence of a value"
+                },
+                {
+                    name: "indexOf()",
+                    icon: <Hash className="w-4 h-4 text-blue-600" />,
+                    description: "Returns first index at which value is found",
+                    syntax: "array.indexOf(value, fromIndex)",
+                    example: "['a','b','c'].indexOf('b'); // 1",
+                    useCase: "When you need the position of a value"
+                },
+                {
+                    name: "lastIndexOf()",
+                    icon: <Hash className="w-4 h-4 text-blue-700" />,
+                    description: "Returns last index at which value is found",
+                    syntax: "array.lastIndexOf(value, fromIndex)",
+                    example: "['a','b','c','b'].lastIndexOf('b'); // 3",
+                    useCase: "When searching from the end"
+                }
+            ]
+        },
+        {
+            category: "Iteration & Testing",
+            methods: [
+                {
+                    name: "forEach()",
+                    icon: <List className="w-4 h-4 text-yellow-500" />,
+                    description: "Executes function for each element (no return)",
+                    syntax: "array.forEach(callback(element, index, array))",
+                    example: "[1,2,3].forEach(x => console.log(x));",
+                    useCase: "When you need to perform side effects"
+                },
+                {
+                    name: "every()",
+                    icon: <CheckSquare className="w-4 h-4 text-green-700" />,
+                    description: "Tests if all elements pass condition",
+                    syntax: "array.every(callback(element, index, array))",
+                    example: "[1,2,3].every(x => x > 0); // true",
+                    useCase: "When validating all elements"
+                },
+                {
+                    name: "some()",
+                    icon: <AlertTriangle className="w-4 h-4 text-orange-600" />,
+                    description: "Tests if at least one element passes condition",
+                    syntax: "array.some(callback(element, index, array))",
+                    example: "[1,2,3].some(x => x > 2); // true",
+                    useCase: "When checking if any element satisfies condition"
+                }
+            ]
+        },
+        {
+            category: "Adding & Removing",
+            methods: [
+                {
+                    name: "push()",
+                    icon: <Plus className="w-4 h-4 text-green-500" />,
+                    description: "Adds elements to end, returns new length",
+                    syntax: "array.push(element1, element2, ...)",
+                    example: "arr.push(4); // adds 4 to end",
+                    useCase: "When adding to end of array"
+                },
+                {
+                    name: "pop()",
+                    icon: <Minus className="w-4 h-4 text-red-500" />,
+                    description: "Removes last element, returns that element",
+                    syntax: "array.pop()",
+                    example: "arr.pop(); // removes last element",
+                    useCase: "When removing from end (stack behavior)"
+                },
+                {
+                    name: "unshift()",
+                    icon: <ArrowUpDown className="w-4 h-4 text-blue-500" />,
+                    description: "Adds elements to beginning, returns new length",
+                    syntax: "array.unshift(element1, element2, ...)",
+                    example: "arr.unshift(0); // adds 0 to start",
+                    useCase: "When adding to beginning"
+                },
+                {
+                    name: "shift()",
+                    icon: <ArrowUpDown className="w-4 h-4 text-blue-400" />,
+                    description: "Removes first element, returns that element",
+                    syntax: "array.shift()",
+                    example: "arr.shift(); // removes first element",
+                    useCase: "When removing from beginning (queue behavior)"
+                },
+                {
+                    name: "splice()",
+                    icon: <Trash2 className="w-4 h-4 text-red-600" />,
+                    description: "Adds/removes elements at any position",
+                    syntax: "array.splice(start, deleteCount, item1, item2, ...)",
+                    example: "arr.splice(2, 1, 'new'); // replaces element at index 2",
+                    useCase: "When modifying array at specific position"
+                },
+                {
+                    name: "slice()",
+                    icon: <Split className="w-4 h-4 text-purple-400" />,
+                    description: "Returns shallow copy of portion of array",
+                    syntax: "array.slice(start, end)",
+                    example: "arr.slice(1, 3); // elements 1-2",
+                    useCase: "When you need a subset without modifying original"
+                }
+            ]
+        },
+        {
+            category: "Sorting & Reordering",
+            methods: [
+                {
+                    name: "sort()",
+                    icon: <SortAsc className="w-4 h-4 text-pink-500" />,
+                    description: "Sorts elements in place (modifies original)",
+                    syntax: "array.sort(compareFunction)",
+                    example: "[3,1,2].sort((a,b) => a - b); // [1,2,3]",
+                    useCase: "When ordering elements"
+                },
+                {
+                    name: "reverse()",
+                    icon: <RefreshCw className="w-4 h-4 text-orange-500" />,
+                    description: "Reverses array in place",
+                    syntax: "array.reverse()",
+                    example: "[1,2,3].reverse(); // [3,2,1]",
+                    useCase: "When reversing order"
+                }
+            ]
+        }
+    ];
 
-console.log('Plus five:', plusFive);
-console.log('Greater than 25:', greaterThan25);
-console.log('Average:', average);`,
-            hint: "Remember: map returns new array, filter returns subset, reduce returns single value"
+    const exercises = [
+        {
+            title: "Complete Array Transformation",
+            description: "Use all transformation methods on a dataset",
+            starterCode: `const products = [
+  { name: 'Laptop', price: 1000, category: 'electronics', inStock: true },
+  { name: 'Book', price: 20, category: 'books', inStock: true },
+  { name: 'Phone', price: 500, category: 'electronics', inStock: false },
+  { name: 'Tablet', price: 300, category: 'electronics', inStock: true }
+];
+
+// 1. Get all electronic products
+// 2. Get just the names of in-stock products
+// 3. Calculate total value of in-stock inventory
+// 4. Create array of prices with 10% discount`,
+            solution: `const products = [
+  { name: 'Laptop', price: 1000, category: 'electronics', inStock: true },
+  { name: 'Book', price: 20, category: 'books', inStock: true },
+  { name: 'Phone', price: 500, category: 'electronics', inStock: false },
+  { name: 'Tablet', price: 300, category: 'electronics', inStock: true }
+];
+
+// 1. Filter electronics
+const electronics = products.filter(p => p.category === 'electronics');
+console.log('Electronics:', electronics);
+
+// 2. Map names of in-stock
+const inStockNames = products
+  .filter(p => p.inStock)
+  .map(p => p.name);
+console.log('In-stock names:', inStockNames);
+
+// 3. Reduce total value
+const totalValue = products
+  .filter(p => p.inStock)
+  .reduce((total, p) => total + p.price, 0);
+console.log('Total inventory value:', totalValue);
+
+// 4. Map with discount
+const discountedPrices = products.map(p => ({
+  name: p.name,
+  discountedPrice: p.price * 0.9
+}));
+console.log('Discounted prices:', discountedPrices);`,
+            hint: "Chain filter() before map()/reduce() for better performance"
+        },
+        {
+            title: "Array Search & Manipulation",
+            description: "Practice searching and modifying arrays",
+            starterCode: `const users = [
+  { id: 1, name: 'Alice', age: 25, active: true },
+  { id: 2, name: 'Bob', age: 30, active: false },
+  { id: 3, name: 'Charlie', age: 35, active: true },
+  { id: 4, name: 'Diana', age: 28, active: true }
+];
+
+// 1. Find user with id 3
+// 2. Check if any user is under 18
+// 3. Get all active users
+// 4. Remove user with id 2
+// 5. Add new user at position 2`,
+            solution: `const users = [
+  { id: 1, name: 'Alice', age: 25, active: true },
+  { id: 2, name: 'Bob', age: 30, active: false },
+  { id: 3, name: 'Charlie', age: 35, active: true },
+  { id: 4, name: 'Diana', age: 28, active: true }
+];
+
+// 1. Find
+const user3 = users.find(u => u.id === 3);
+console.log('User with id 3:', user3);
+
+// 2. Some
+const hasUnder18 = users.some(u => u.age < 18);
+console.log('Has under 18?', hasUnder18);
+
+// 3. Filter
+const activeUsers = users.filter(u => u.active);
+console.log('Active users:', activeUsers);
+
+// 4. Find index + splice
+const bobIndex = users.findIndex(u => u.id === 2);
+users.splice(bobIndex, 1);
+console.log('After removing Bob:', users);
+
+// 5. Splice to add
+users.splice(2, 0, { id: 5, name: 'Eve', age: 22, active: true });
+console.log('After adding Eve:', users);`,
+            hint: "Use findIndex() with splice() for removing by condition"
         },
         {
             title: "Advanced Array Operations",
-            description: "Combine multiple array methods",
-            starterCode: `const products = [
-  { name: 'Laptop', price: 1000, stock: 5 },
-  { name: 'Phone', price: 500, stock: 10 },
-  { name: 'Tablet', price: 300, stock: 8 }
-];
-// Get names of products with price > 400
-// Calculate total value of inventory (price * stock)`,
-            solution: `const products = [
-  { name: 'Laptop', price: 1000, stock: 5 },
-  { name: 'Phone', price: 500, stock: 10 },
-  { name: 'Tablet', price: 300, stock: 8 }
+            description: "Combine multiple methods for complex operations",
+            starterCode: `const orders = [
+  { id: 1, items: ['apple', 'banana'], total: 5 },
+  { id: 2, items: ['orange', 'grape', 'apple'], total: 8 },
+  { id: 3, items: ['banana'], total: 2 },
+  { id: 4, items: ['apple', 'orange'], total: 6 }
 ];
 
-const expensiveProducts = products
-  .filter(p => p.price > 400)
-  .map(p => p.name);
+// 1. Get all unique items purchased
+// 2. Get total revenue from all orders
+// 3. Find order with highest total
+// 4. Get array of just item lists, flattened
+// 5. Sort orders by total descending`,
+            solution: `const orders = [
+  { id: 1, items: ['apple', 'banana'], total: 5 },
+  { id: 2, items: ['orange', 'grape', 'apple'], total: 8 },
+  { id: 3, items: ['banana'], total: 2 },
+  { id: 4, items: ['apple', 'orange'], total: 6 }
+];
 
-const totalValue = products
-  .reduce((total, p) => total + (p.price * p.stock), 0);
+// 1. FlatMap + Set for unique
+const allItems = orders.flatMap(order => order.items);
+const uniqueItems = [...new Set(allItems)];
+console.log('Unique items:', uniqueItems);
 
-console.log('Expensive products:', expensiveProducts);
-console.log('Total inventory value:', totalValue);`,
-            hint: "You can chain array methods. Filter first, then map for better performance."
+// 2. Reduce for total
+const totalRevenue = orders.reduce((sum, order) => sum + order.total, 0);
+console.log('Total revenue:', totalRevenue);
+
+// 3. Reduce for max
+const highestOrder = orders.reduce((max, order) => 
+  order.total > max.total ? order : max
+);
+console.log('Highest order:', highestOrder);
+
+// 4. Map for items
+const itemLists = orders.map(order => order.items);
+console.log('Item lists:', itemLists);
+
+// 5. Sort
+const sortedOrders = [...orders].sort((a, b) => b.total - a.total);
+console.log('Sorted orders:', sortedOrders);`,
+            hint: "Use [...new Set(array)] to get unique values. Use [...array] to copy before sort()"
+        }
+    ];
+
+    const challenges = [
+        {
+            title: "Array Master Challenge",
+            difficulty: "Advanced",
+            description: "Implement common utility functions from scratch",
+            tasks: [
+                "Write your own map() function",
+                "Write your own filter() function",
+                "Write your own reduce() function",
+                "Implement array deduplication",
+                "Flatten nested arrays recursively"
+            ]
         }
     ];
 
@@ -133,33 +471,45 @@ console.log('Total inventory value:', totalValue);`,
     };
 
     const resetCode = () => {
-        setCode(`// Arrays are ordered collections of items
+        setCode(`// === ARRAY FUNDAMENTALS ===
+// 1. Creating Arrays
 const fruits = ['apple', 'banana', 'orange'];
-console.log(fruits[0]); // 'apple'
-
-// Arrays can hold mixed data types
-const mixedArray = [1, 'hello', true, { name: 'John' }];
-
-// Common array methods
 const numbers = [1, 2, 3, 4, 5];
+const mixed = [1, 'hello', true, { name: 'John' }];
 
-// map() - transform each element
+// 2. Accessing Elements
+console.log(fruits[0]);      // 'apple' (zero-based)
+console.log(fruits.length);  // 3
+
+// === ESSENTIAL METHODS ===
+// 3. Transformation Methods
 const doubled = numbers.map(num => num * 2);
+console.log('Map:', doubled);
 
-// filter() - select elements based on condition
-const evenNumbers = numbers.filter(num => num % 2 === 0);
+const evens = numbers.filter(num => num % 2 === 0);
+console.log('Filter:', evens);
 
-// reduce() - accumulate values
 const sum = numbers.reduce((total, num) => total + num, 0);
+console.log('Reduce:', sum);
 
-// forEach() - execute function for each element
-numbers.forEach(num => console.log(num));`);
+// 4. Iteration
+numbers.forEach(num => console.log('ForEach:', num));
+
+// 5. Searching
+const found = fruits.find(fruit => fruit.startsWith('b'));
+console.log('Find:', found);
+
+const hasApple = fruits.includes('apple');
+console.log('Includes:', hasApple);
+
+// 6. Adding/Removing
+fruits.push('grape');     // Add to end
+fruits.pop();             // Remove from end
+fruits.unshift('kiwi');   // Add to start
+fruits.shift();           // Remove from start
+
+console.log('Modified:', fruits);`);
         setOutput('');
-    };
-
-    const completeExercise = () => {
-        alert('Exercise completed! Moving to next...');
-        setCurrentExercise(prev => (prev + 1) % exercises.length);
     };
 
     return (
@@ -167,22 +517,22 @@ numbers.forEach(num => console.log(num));`);
             <LessonSidebar currentLesson="lesson7" />
 
             <main className="lg:ml-80 p-6">
-                {/* Header */}
-                <div className="max-w-6xl mx-auto">
+                <div className="max-w-7xl mx-auto">
+                    {/* Header */}
                     <div className="mb-8">
                         <div className="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400 mb-3">
                             <span>Module 1: Fundamentals</span>
                             <ChevronRight className="w-4 h-4" />
-                            <span className="text-yellow-600 dark:text-yellow-400">Lesson 7</span>
+                            <span className="text-yellow-600 dark:text-yellow-400">Lesson 7: Complete Array Mastery</span>
                         </div>
 
                         <div className="flex justify-between items-start">
                             <div>
                                 <h1 className="text-4xl font-bold text-slate-800 dark:text-white mb-3">
-                                    Arrays: Ordered Collections
+                                    Arrays: Complete Guide with ALL Methods
                                 </h1>
                                 <p className="text-lg text-slate-600 dark:text-slate-300">
-                                    Learn how to store and manipulate ordered data with JavaScript arrays and their powerful methods.
+                                    Master every array method with detailed examples, practical exercises, and real-world scenarios.
                                 </p>
                             </div>
 
@@ -194,17 +544,17 @@ numbers.forEach(num => console.log(num));`);
                     </div>
 
                     {/* Tabs */}
-                    <div className="flex border-b border-slate-200 dark:border-slate-800 mb-8">
-                        {['content', 'exercises', 'challenges'].map((tab) => (
+                    <div className="flex border-b border-slate-200 dark:border-slate-800 mb-8 overflow-x-auto">
+                        {['content', 'all-methods', 'exercises', 'practice-lab'].map((tab) => (
                             <button
                                 key={tab}
                                 onClick={() => setActiveTab(tab)}
-                                className={`px-6 py-3 font-medium capitalize ${activeTab === tab
+                                className={`px-6 py-3 font-medium capitalize whitespace-nowrap ${activeTab === tab
                                     ? 'text-yellow-600 dark:text-yellow-400 border-b-2 border-yellow-500'
                                     : 'text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-300'
                                     }`}
                             >
-                                {tab}
+                                {tab.replace('-', ' ')}
                             </button>
                         ))}
                     </div>
@@ -216,85 +566,76 @@ numbers.forEach(num => console.log(num));`);
                                 {/* What are Arrays */}
                                 <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 shadow-lg">
                                     <h2 className="text-2xl font-bold text-slate-800 dark:text-white mb-4 flex items-center gap-2">
-                                        <List className="w-6 h-6 text-yellow-500" />
-                                        What are Arrays?
+                                        <BookOpen className="w-6 h-6 text-yellow-500" />
+                                        Arrays: The Complete Picture
                                     </h2>
                                     <p className="text-slate-600 dark:text-slate-300 mb-4">
-                                        Arrays are ordered, indexed collections of values. They can store any data type and are one of the most important data structures in JavaScript.
+                                        Arrays are JavaScript's workhorse data structure. They're ordered, indexed collections that can store any data type and provide over 30 methods for manipulation.
                                     </p>
 
-                                    <div className="bg-slate-50 dark:bg-slate-800 p-4 rounded-lg">
-                                        <h3 className="font-bold text-slate-700 dark:text-slate-300 mb-2">Key Characteristics:</h3>
-                                        <ul className="space-y-2">
-                                            <li className="flex items-center gap-2">
-                                                <Hash className="w-4 h-4 text-green-500" />
-                                                <span>Zero-based indexing (first element is at index 0)</span>
-                                            </li>
-                                            <li className="flex items-center gap-2">
-                                                <Grid className="w-4 h-4 text-blue-500" />
-                                                <span>Dynamic size (can grow/shrink automatically)</span>
-                                            </li>
-                                            <li className="flex items-center gap-2">
-                                                <Filter className="w-4 h-4 text-purple-500" />
-                                                <span>Can contain mixed data types</span>
-                                            </li>
-                                        </ul>
+                                    <div className="grid grid-cols-2 gap-4">
+                                        <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+                                            <h3 className="font-bold text-blue-700 dark:text-blue-300 mb-2">Mutable Methods</h3>
+                                            <ul className="text-sm space-y-1">
+                                                <li>• push() / pop()</li>
+                                                <li>• shift() / unshift()</li>
+                                                <li>• splice()</li>
+                                                <li>• reverse() / sort()</li>
+                                            </ul>
+                                        </div>
+
+                                        <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+                                            <h3 className="font-bold text-green-700 dark:text-green-300 mb-2">Immutable Methods</h3>
+                                            <ul className="text-sm space-y-1">
+                                                <li>• map() / filter()</li>
+                                                <li>• slice()</li>
+                                                <li>• concat()</li>
+                                                <li>• flat() / flatMap()</li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
 
-                                {/* Common Methods */}
+                                {/* Method Categories */}
                                 <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 shadow-lg">
                                     <h2 className="text-2xl font-bold text-slate-800 dark:text-white mb-4">
-                                        Essential Array Methods
+                                        Array Method Categories
                                     </h2>
 
                                     <div className="space-y-4">
-                                        <div className="p-4 bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 rounded-xl">
-                                            <h3 className="font-bold text-blue-700 dark:text-blue-300">map()</h3>
-                                            <p className="text-sm text-slate-600 dark:text-slate-400">
-                                                Creates a new array by applying a function to each element.
-                                            </p>
-                                        </div>
-
-                                        <div className="p-4 bg-gradient-to-r from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/20 rounded-xl">
-                                            <h3 className="font-bold text-green-700 dark:text-green-300">filter()</h3>
-                                            <p className="text-sm text-slate-600 dark:text-slate-400">
-                                                Returns new array with elements that pass a test.
-                                            </p>
-                                        </div>
-
-                                        <div className="p-4 bg-gradient-to-r from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-800/20 rounded-xl">
-                                            <h3 className="font-bold text-purple-700 dark:text-purple-300">reduce()</h3>
-                                            <p className="text-sm text-slate-600 dark:text-slate-400">
-                                                Executes a reducer function to produce a single value.
-                                            </p>
-                                        </div>
+                                        {arrayMethods.map((category, idx) => (
+                                            <div key={idx} className="p-4 border border-slate-200 dark:border-slate-800 rounded-lg">
+                                                <h3 className="font-bold text-lg text-slate-800 dark:text-white mb-2">
+                                                    {category.category} ({category.methods.length} methods)
+                                                </h3>
+                                                <div className="flex flex-wrap gap-2">
+                                                    {category.methods.map((method, mIdx) => (
+                                                        <span
+                                                            key={mIdx}
+                                                            className="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-sm cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-700"
+                                                            onClick={() => {
+                                                                setActiveTab('all-methods');
+                                                                setCurrentMethod(idx * 10 + mIdx);
+                                                            }}
+                                                        >
+                                                            {method.name}
+                                                        </span>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        ))}
                                     </div>
-                                </div>
-
-                                {/* Tips */}
-                                <div className="bg-gradient-to-r from-yellow-50 to-orange-50 dark:from-yellow-900/20 dark:to-orange-900/20 rounded-2xl p-6">
-                                    <div className="flex items-center gap-3 mb-4">
-                                        <Lightbulb className="w-6 h-6 text-yellow-600 dark:text-yellow-400" />
-                                        <h3 className="font-bold text-slate-800 dark:text-white">Pro Tips</h3>
-                                    </div>
-                                    <ul className="space-y-2 text-slate-700 dark:text-slate-300">
-                                        <li>• Use <code>Array.isArray()</code> to check if something is an array</li>
-                                        <li>• <code>forEach()</code> doesn't return anything - use <code>map()</code> when you need a result</li>
-                                        <li>• Spread syntax <code>[...arr]</code> creates shallow copies</li>
-                                        <li>• Method chaining: <code>arr.filter().map().slice()</code></li>
-                                    </ul>
                                 </div>
                             </div>
 
                             {/* Code Column */}
                             <div className="space-y-8">
-                                {/* Code Editor */}
+                                {/* Interactive Editor */}
                                 <div className="bg-slate-900 rounded-2xl overflow-hidden shadow-2xl">
                                     <div className="flex justify-between items-center bg-slate-800 px-6 py-4">
                                         <div className="flex items-center gap-3">
                                             <Terminal className="w-5 h-5 text-green-400" />
-                                            <span className="font-mono text-slate-300">arrays.js</span>
+                                            <span className="font-mono text-slate-300">array-practice.js</span>
                                         </div>
                                         <div className="flex gap-2">
                                             <button
@@ -338,34 +679,112 @@ numbers.forEach(num => console.log(num));`);
                                         </div>
                                     )}
                                 </div>
+                            </div>
+                        </div>
+                    )}
 
-                                {/* Live Examples */}
-                                <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 shadow-lg">
-                                    <h3 className="text-xl font-bold text-slate-800 dark:text-white mb-4 flex items-center gap-2">
-                                        <Zap className="w-5 h-5 text-yellow-500" />
-                                        Quick Examples
-                                    </h3>
-
-                                    <div className="space-y-4">
-                                        <div className="p-4 bg-slate-50 dark:bg-slate-800 rounded-lg">
-                                            <p className="text-sm text-slate-600 dark:text-slate-400 mb-2">Create array:</p>
-                                            <code className="text-green-600 dark:text-green-400 text-sm">const colors = ['red', 'green', 'blue'];</code>
-                                        </div>
-
-                                        <div className="p-4 bg-slate-50 dark:bg-slate-800 rounded-lg">
-                                            <p className="text-sm text-slate-600 dark:text-slate-400 mb-2">Add/remove elements:</p>
-                                            <code className="text-blue-600 dark:text-blue-400 text-sm">colors.push('yellow'); // Add to end</code><br />
-                                            <code className="text-blue-600 dark:text-blue-400 text-sm">colors.pop(); // Remove from end</code>
-                                        </div>
-
-                                        <div className="p-4 bg-slate-50 dark:bg-slate-800 rounded-lg">
-                                            <p className="text-sm text-slate-600 dark:text-slate-400 mb-2">Find element:</p>
-                                            <code className="text-purple-600 dark:text-purple-400 text-sm">
-                                                {"const found = colors.find(color => color === 'green');"}
-                                            </code>
-
-                                        </div>
+                    {activeTab === 'all-methods' && (
+                        <div className="space-y-8">
+                            {/* Method Navigation */}
+                            <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 shadow-lg">
+                                <div className="flex justify-between items-center mb-6">
+                                    <h2 className="text-2xl font-bold text-slate-800 dark:text-white">
+                                        All Array Methods ({arrayMethods.flatMap(c => c.methods).length}+)
+                                    </h2>
+                                    <div className="flex gap-2">
+                                        <button
+                                            onClick={() => setCurrentMethod(prev => prev > 0 ? prev - 1 : arrayMethods.flatMap(c => c.methods).length - 1)}
+                                            className="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg"
+                                        >
+                                            <ChevronLeft className="w-5 h-5" />
+                                        </button>
+                                        <span className="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-lg">
+                                            {currentMethod + 1} / {arrayMethods.flatMap(c => c.methods).length}
+                                        </span>
+                                        <button
+                                            onClick={() => setCurrentMethod(prev => (prev + 1) % arrayMethods.flatMap(c => c.methods).length)}
+                                            className="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg"
+                                        >
+                                            <ChevronRight className="w-5 h-5" />
+                                        </button>
                                     </div>
+                                </div>
+
+                                {/* Method Categories */}
+                                <div className="flex flex-wrap gap-2 mb-6">
+                                    {arrayMethods.map((category, idx) => (
+                                        <button
+                                            key={idx}
+                                            onClick={() => setCurrentMethod(idx * 10)}
+                                            className={`px-4 py-2 rounded-lg ${currentMethod >= idx * 10 && currentMethod < (idx + 1) * 10
+                                                ? 'bg-yellow-500 text-white'
+                                                : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300'
+                                                }`}
+                                        >
+                                            {category.category}
+                                        </button>
+                                    ))}
+                                </div>
+
+                                {/* Current Method Detail */}
+                                <div className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-xl p-6">
+                                    {(() => {
+                                        const allMethods = arrayMethods.flatMap(c => c.methods);
+                                        const method = allMethods[currentMethod];
+                                        const category = arrayMethods.find(c => c.methods.includes(method));
+
+                                        return (
+                                            <>
+                                                <div className="flex items-center gap-3 mb-4">
+                                                    {method.icon}
+                                                    <div>
+                                                        <h3 className="text-xl font-bold text-slate-800 dark:text-white">
+                                                            {method.name}
+                                                        </h3>
+                                                        <p className="text-sm text-slate-600 dark:text-slate-400">
+                                                            {category.category}
+                                                        </p>
+                                                    </div>
+                                                </div>
+
+                                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                                    <div>
+                                                        <h4 className="font-bold text-slate-700 dark:text-slate-300 mb-2">Description</h4>
+                                                        <p className="text-slate-600 dark:text-slate-400">
+                                                            {method.description}
+                                                        </p>
+
+                                                        <h4 className="font-bold text-slate-700 dark:text-slate-300 mt-4 mb-2">Use Case</h4>
+                                                        <p className="text-slate-600 dark:text-slate-400">
+                                                            {method.useCase}
+                                                        </p>
+                                                    </div>
+
+                                                    <div>
+                                                        <h4 className="font-bold text-slate-700 dark:text-slate-300 mb-2">Syntax</h4>
+                                                        <pre className="bg-slate-800 text-green-400 p-3 rounded-lg text-sm">
+                                                            {method.syntax}
+                                                        </pre>
+
+                                                        <h4 className="font-bold text-slate-700 dark:text-slate-300 mt-4 mb-2">Example</h4>
+                                                        <pre className="bg-slate-800 text-blue-400 p-3 rounded-lg text-sm">
+                                                            {method.example}
+                                                        </pre>
+                                                    </div>
+                                                </div>
+
+                                                <button
+                                                    onClick={() => {
+                                                        setCode(`${method.example}\n// Try modifying this example!`);
+                                                        setActiveTab('practice-lab');
+                                                    }}
+                                                    className="mt-6 w-full py-3 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-lg font-medium hover:shadow-lg transition-shadow"
+                                                >
+                                                    Practice This Method
+                                                </button>
+                                            </>
+                                        );
+                                    })()}
                                 </div>
                             </div>
                         </div>
@@ -415,21 +834,30 @@ numbers.forEach(num => console.log(num));`);
                                         </button>
                                     </div>
 
-                                    {/* Hint */}
-                                    <div className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-xl p-6">
-                                        <div className="flex items-center gap-2 mb-4">
-                                            <AlertTriangle className="w-5 h-5 text-blue-500" />
-                                            <h3 className="font-medium text-slate-800 dark:text-white">Hint</h3>
+                                    {/* Hint & Solution */}
+                                    <div className="space-y-6">
+                                        <div className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-xl p-6">
+                                            <div className="flex items-center gap-2 mb-4">
+                                                <Lightbulb className="w-5 h-5 text-blue-500" />
+                                                <h3 className="font-medium text-slate-800 dark:text-white">Hint</h3>
+                                            </div>
+                                            <p className="text-slate-700 dark:text-slate-300">
+                                                {exercises[currentExercise].hint}
+                                            </p>
                                         </div>
-                                        <p className="text-slate-700 dark:text-slate-300">
-                                            {exercises[currentExercise].hint}
-                                        </p>
-                                        <button
-                                            onClick={() => alert(`Solution:\n${exercises[currentExercise].solution}`)}
-                                            className="mt-4 px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg text-sm transition-colors"
-                                        >
-                                            Show Solution
-                                        </button>
+
+                                        <div className="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-xl p-6">
+                                            <div className="flex items-center gap-2 mb-4">
+                                                <Brain className="w-5 h-5 text-green-500" />
+                                                <h3 className="font-medium text-slate-800 dark:text-white">Solution</h3>
+                                            </div>
+                                            <button
+                                                onClick={() => alert(`Full Solution:\n\n${exercises[currentExercise].solution}`)}
+                                                className="w-full px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-lg text-sm transition-colors"
+                                            >
+                                                View Complete Solution
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -443,14 +871,17 @@ numbers.forEach(num => console.log(num));`);
 
                                     <div className="flex gap-4">
                                         <button
-                                            onClick={() => setActiveTab('content')}
-                                            className="px-6 py-3 border border-slate-300 dark:border-slate-700 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
+                                            onClick={() => setActiveTab('practice-lab')}
+                                            className="px-6 py-3 bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-xl font-medium hover:shadow-lg transition-shadow"
                                         >
-                                            Review Lesson
+                                            Try in Practice Lab
                                         </button>
 
                                         <button
-                                            onClick={completeExercise}
+                                            onClick={() => {
+                                                alert('Great job! Moving to next exercise...');
+                                                setCurrentExercise(prev => (prev + 1) % exercises.length);
+                                            }}
                                             className="px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-xl font-medium hover:shadow-lg transition-shadow"
                                         >
                                             Complete Exercise
@@ -461,105 +892,185 @@ numbers.forEach(num => console.log(num));`);
                         </div>
                     )}
 
-                    {activeTab === 'challenges' && (
-                        <div className="max-w-4xl mx-auto">
+                    {activeTab === 'practice-lab' && (
+                        <div className="space-y-8">
+                            {/* Practice Lab Header */}
                             <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl p-8 shadow-2xl">
                                 <div className="flex items-center gap-3 mb-6">
-                                    <Brain className="w-8 h-8 text-yellow-400" />
-                                    <h2 className="text-2xl font-bold text-white">Array Challenges</h2>
+                                    <Brain className="w-8 h-8 text-purple-400" />
+                                    <h2 className="text-2xl font-bold text-white">Array Practice Lab</h2>
                                 </div>
 
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                                    {/* Challenge 1 */}
+                                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+                                    {/* Quick Practice Templates */}
                                     <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700">
-                                        <div className="flex items-center gap-2 mb-4">
-                                            <Timer className="w-5 h-5 text-green-400" />
-                                            <span className="text-sm font-medium text-slate-300">Beginner</span>
-                                        </div>
-                                        <h3 className="text-xl font-bold text-white mb-3">Array Reversal</h3>
-                                        <p className="text-slate-400 mb-4">
-                                            Write a function that reverses an array without using the built-in <code>reverse()</code> method.
+                                        <h3 className="text-lg font-bold text-white mb-3">Beginner Practice</h3>
+                                        <p className="text-slate-400 mb-4 text-sm">
+                                            Basic array operations and transformations
                                         </p>
                                         <button
-                                            onClick={() => alert('Hint: Try using a for loop starting from the end!')}
-                                            className="text-yellow-400 hover:text-yellow-300 text-sm"
+                                            onClick={() => setCode(`// Practice basic array methods
+const numbers = [1, 2, 3, 4, 5];
+
+// TODO: Try these operations:
+// 1. Double each number (map)
+// 2. Filter even numbers
+// 3. Calculate sum (reduce)
+// 4. Add new numbers
+// 5. Remove first number
+
+console.log('Original:', numbers);`)}
+                                            className="text-purple-400 hover:text-purple-300 text-sm"
                                         >
-                                            Take Challenge →
+                                            Load Template →
                                         </button>
                                     </div>
 
-                                    {/* Challenge 2 */}
                                     <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700">
-                                        <div className="flex items-center gap-2 mb-4">
-                                            <Timer className="w-5 h-5 text-orange-400" />
-                                            <span className="text-sm font-medium text-slate-300">Intermediate</span>
-                                        </div>
-                                        <h3 className="text-xl font-bold text-white mb-3">Duplicate Finder</h3>
-                                        <p className="text-slate-400 mb-4">
-                                            Find all duplicate values in an array and return them in a new array.
+                                        <h3 className="text-lg font-bold text-white mb-3">Intermediate Practice</h3>
+                                        <p className="text-slate-400 mb-4 text-sm">
+                                            Working with arrays of objects and complex data
                                         </p>
                                         <button
-                                            onClick={() => alert('Hint: Use an object to track occurrences!')}
-                                            className="text-yellow-400 hover:text-yellow-300 text-sm"
+                                            onClick={() => setCode(`// Practice with objects
+const users = [
+  { id: 1, name: 'Alice', age: 25, active: true },
+  { id: 2, name: 'Bob', age: 30, active: false },
+  { id: 3, name: 'Charlie', age: 35, active: true }
+];
+
+// TODO: Try these:
+// 1. Get all active users
+// 2. Get just the names
+// 3. Find user by id
+// 4. Calculate average age
+// 5. Sort by age
+
+console.log('Users:', users);`)}
+                                            className="text-purple-400 hover:text-purple-300 text-sm"
                                         >
-                                            Take Challenge →
+                                            Load Template →
                                         </button>
                                     </div>
 
-                                    {/* Challenge 3 */}
-                                    <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700 md:col-span-2">
-                                        <div className="flex items-center gap-2 mb-4">
-                                            <Timer className="w-5 h-5 text-red-400" />
-                                            <span className="text-sm font-medium text-slate-300">Advanced</span>
-                                        </div>
-                                        <h3 className="text-xl font-bold text-white mb-3">Array Flattening</h3>
-                                        <p className="text-slate-400 mb-4">
-                                            Write a function that flattens a nested array of any depth. Input: <code>[1, [2, [3, [4]], 5]]</code> Output: <code>[1, 2, 3, 4, 5]</code>
+                                    <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700">
+                                        <h3 className="text-lg font-bold text-white mb-3">Advanced Practice</h3>
+                                        <p className="text-slate-400 mb-4 text-sm">
+                                            Method chaining and complex transformations
                                         </p>
                                         <button
-                                            onClick={() => alert('Hint: Recursion might help with this one!')}
-                                            className="text-yellow-400 hover:text-yellow-300 text-sm"
+                                            onClick={() => setCode(`// Advanced method chaining
+const products = [
+  { name: 'Laptop', price: 1000, category: 'electronics' },
+  { name: 'Book', price: 20, category: 'books' },
+  { name: 'Phone', price: 500, category: 'electronics' }
+];
+
+// TODO: Create a single chain that:
+// 1. Filters electronics
+// 2. Applies 10% discount
+// 3. Sorts by price descending
+// 4. Gets only names and prices
+
+console.log('Products:', products);`)}
+                                            className="text-purple-400 hover:text-purple-300 text-sm"
                                         >
-                                            Take Challenge →
+                                            Load Template →
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Live Editor */}
+                            <div className="bg-slate-900 rounded-2xl overflow-hidden shadow-2xl">
+                                <div className="flex justify-between items-center bg-slate-800 px-6 py-4">
+                                    <div className="flex items-center gap-3">
+                                        <Terminal className="w-5 h-5 text-yellow-400" />
+                                        <span className="font-mono text-slate-300">practice-lab.js</span>
+                                    </div>
+                                    <div className="flex gap-2">
+                                        <button
+                                            onClick={copyCode}
+                                            className="p-2 hover:bg-slate-700 rounded-lg transition-colors"
+                                        >
+                                            <Copy className="w-4 h-4 text-slate-400" />
+                                        </button>
+                                        <button
+                                            onClick={resetCode}
+                                            className="p-2 hover:bg-slate-700 rounded-lg transition-colors"
+                                        >
+                                            <RotateCcw className="w-4 h-4 text-slate-400" />
+                                        </button>
+                                        <button
+                                            onClick={runCode}
+                                            className="px-4 py-2 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-lg font-medium flex items-center gap-2 hover:shadow-lg transition-shadow"
+                                        >
+                                            <Play className="w-4 h-4" />
+                                            Run Code
                                         </button>
                                     </div>
                                 </div>
 
-                                <div className="text-center">
-                                    <button className="px-8 py-4 bg-gradient-to-r from-yellow-500 to-orange-600 text-white rounded-xl font-bold text-lg hover:shadow-2xl transition-all hover:scale-105">
-                                        Submit All Challenges
-                                    </button>
+                                <div className="p-6">
+                                    <textarea
+                                        value={code}
+                                        onChange={(e) => setCode(e.target.value)}
+                                        className="w-full h-96 bg-slate-950 text-green-400 font-mono text-sm p-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                                        spellCheck="false"
+                                    />
                                 </div>
+
+                                {output && (
+                                    <div className="border-t border-slate-800">
+                                        <div className="px-6 py-4 bg-slate-950">
+                                            <div className="flex justify-between items-center mb-2">
+                                                <h4 className="text-slate-400 font-medium">Output:</h4>
+                                                <button
+                                                    onClick={() => setOutput('')}
+                                                    className="text-xs text-slate-500 hover:text-slate-300"
+                                                >
+                                                    Clear
+                                                </button>
+                                            </div>
+                                            <pre className="text-green-400 font-mono text-sm whitespace-pre-wrap max-h-64 overflow-y-auto">
+                                                {output}
+                                            </pre>
+                                        </div>
+                                    </div>
+                                )}
                             </div>
                         </div>
                     )}
 
                     {/* Navigation */}
-                    <div className="max-w-6xl mx-auto mt-12 pt-8 border-t border-slate-200 dark:border-slate-800 flex justify-between">
-        
-                        <a className="px-6 py-3 border border-slate-300 dark:border-slate-700 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors flex items-center gap-2" href="/lesson6">
-                                <ChevronLeft className="w-5 h-5" />
-                                Previous
-                            </a>
-                    
-                        <button className="px-6 py-3 border border-slate-300 dark:border-slate-700 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors flex items-center gap-2">
-                            <ChevronRight className="w-5 h-5 rotate-180" />
+                    <div className="max-w-7xl mx-auto mt-12 pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-6">
+                        <a
+                            href="/lesson6"
+                            className="px-6 py-3 border border-slate-300 dark:border-slate-700 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors flex items-center gap-2"
+                        >
+                            <ChevronLeft className="w-5 h-5" />
                             Previous: Scope & Hoisting
-                        </button>
+                        </a>
 
                         <div className="text-center">
                             <p className="text-sm text-slate-500 dark:text-slate-400 mb-2">
                                 Up Next: Objects & Prototypes
                             </p>
-                            <button className="px-8 py-3 bg-gradient-to-r from-yellow-500 to-orange-600 text-white rounded-xl font-medium hover:shadow-lg transition-shadow">
+                            <a
+                                href="/lesson8"
+                                className="inline-block px-8 py-3 bg-gradient-to-r from-yellow-500 to-orange-600 text-white rounded-xl font-medium hover:shadow-lg transition-shadow"
+                            >
                                 Continue Learning
-                            </button>
+                            </a>
                         </div>
 
-                        <button className="px-6 py-3 border border-slate-300 dark:border-slate-700 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors flex items-center gap-2">
+                        <a
+                            href="/lesson8"
+                            className="px-6 py-3 border border-slate-300 dark:border-slate-700 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors flex items-center gap-2"
+                        >
                             Next: Objects & Prototypes
                             <ChevronRight className="w-5 h-5" />
-                        </button>
+                        </a>
                     </div>
                 </div>
             </main>

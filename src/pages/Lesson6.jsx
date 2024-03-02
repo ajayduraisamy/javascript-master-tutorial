@@ -2,6 +2,8 @@ import {
     AlertCircle,
     ArrowDown,
     ArrowLeft,
+    ChevronLeft,
+    ChevronRight,
     ArrowRight,
     ArrowUp,
     Award,
@@ -1409,28 +1411,38 @@ testScope();
                         </div>
                     )}
 
-                    {/* Navigation */}
-                    <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 mt-12 border-t border-slate-200 dark:border-slate-800">
-                        <div className="flex items-center gap-3 text-slate-600 dark:text-slate-400">
-                            <div className="w-8 h-8 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center">
-                                <Layers className="w-4 h-4 text-purple-600 dark:text-purple-400" />
-                            </div>
-                            <span className="text-sm">
-                                Lesson 6: Scope & Hoisting
-                            </span>
-                        </div>
-
-                        <div className="flex items-center gap-4">
-                            <button className="px-6 py-3 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors font-medium flex items-center gap-2">
-                                <ArrowLeft className="w-4 h-4" />
-                                Previous: Arrays & Objects
-                            </button>
-                            <button className="px-6 py-3 rounded-xl bg-gradient-to-r from-purple-500 to-indigo-600 hover:from-purple-600 hover:to-indigo-700 transition-all font-medium text-white flex items-center gap-2">
-                                Next: Closures & IIFE
-                                <ArrowRight className="w-4 h-4" />
-                            </button>
-                        </div>
-                    </div>
+                
+                                    {/* Navigation Footer */}
+                                    <div className="flex flex-col md:flex-row justify-between items-center gap-6 pt-8 border-t border-slate-200 dark:border-slate-800">
+                                        <a
+                                            href="/lesson5"
+                                            className="w-full md:w-auto px-6 py-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all flex items-center justify-center gap-2 group"
+                                        >
+                                            <ChevronLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+                                            <span>Functions</span>
+                                        </a>
+                
+                                        <div className="text-center">
+                                            <div className="text-xs text-slate-500 dark:text-slate-400 mb-2 font-bold uppercase tracking-wider">
+                                                Progress
+                                            </div>
+                                            <div className="w-64 h-2 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden shadow-inner">
+                                                <div className="h-full w-4/23 bg-gradient-to-r from-indigo-400 via-blue-500 to-purple-500 rounded-full animate-gradient-x"></div>
+                                            </div>
+                                            <div className="text-xs text-slate-500 dark:text-slate-400 mt-2">
+                                                Lesson 6 • Module 1
+                                            </div>
+                                        </div>
+                
+                                        <a
+                                            href="/lesson7"
+                                            className="w-full md:w-auto px-6 py-3 rounded-xl bg-gradient-to-r from-indigo-500 to-blue-600 text-white font-bold hover:shadow-2xl hover:shadow-blue-500/30 transition-all flex items-center justify-center gap-2 group"
+                                        >
+                                            <span>Array</span>
+                                            <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                        </a>
+                                    </div>
+                                
                 </div>
             </main>
         </div>

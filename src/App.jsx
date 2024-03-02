@@ -11,6 +11,7 @@ import Lesson3 from "./pages/Lesson3";
 import Lesson4 from "./pages/Lesson4";
 import Lesson5 from "./pages/Lesson5";
 import Lesson6 from "./pages/Lesson6";
+import Lesson7 from "./pages/lesson7";
 // Import all other lessons similarly...
 
 
@@ -34,6 +35,7 @@ export default function App() {
         <Route path="/lesson4" element={<Lesson4 />} />
         <Route path="/lesson5" element={<Lesson5 />} />
         <Route path="/lesson6" element={<Lesson6 />} />
+        <Route path="/lesson7" element={<Lesson7 />} />
       
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
