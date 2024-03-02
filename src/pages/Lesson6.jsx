@@ -1,14 +1,33 @@
-import React, { useState, useEffect } from 'react';
-import LessonSidebar from '../components/LessonSidebar';
 import {
-    Check, Copy, Play, AlertCircle, Code,
-    CheckCircle, Target, ArrowRight, ArrowLeft, Terminal,
-    BookOpen, RefreshCw, Eye, EyeOff, TrendingUp,
-    Cpu, Award, Calculator, FunctionSquare, Zap,
-    Box, Layers, Package, Filter, GitBranch,
-    GitMerge, ArrowUp, ArrowDown, Lock, Unlock,
-    Maximize2, Minimize2
+    AlertCircle,
+    ArrowDown,
+    ArrowLeft,
+    ArrowRight,
+    ArrowUp,
+    Award,
+    BookOpen,
+    Box,
+    Calculator,
+    Check,
+    CheckCircle,
+    Code,
+    Copy,
+    Cpu,
+    Eye, EyeOff,
+    FunctionSquare,
+    GitBranch,
+    Layers,
+    Maximize2, Minimize2,
+    Package,
+    Play,
+    RefreshCw,
+    Target,
+    Terminal,
+    TrendingUp,
+    Zap
 } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import LessonSidebar from '../components/LessonSidebar';
 
 export default function Lesson6() {
     const [copied, setCopied] = useState(false);
@@ -870,9 +889,9 @@ console.log(name);      // "global"`}
 
             <main className="relative z-10 transition-all duration-300 w-full lg:pl-80">
                 <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
-                    
 
-                
+
+
                     <div className="mb-12 animate-in fade-in slide-in-from-bottom-6 duration-700">
                         <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm text-slate-500 dark:text-slate-400 mb-4 font-mono">
                             <span className="px-3 py-1 rounded-full bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400 font-bold animate-pulse">
@@ -888,7 +907,7 @@ console.log(name);      // "global"`}
                             <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-indigo-500 to-blue-500 animate-gradient">
                                 {typingEffect}
                             </span>
-                        
+
                         </h1>
 
                         <p className="text-xl md:text-2xl text-slate-600 dark:text-slate-400 mb-8 max-w-4xl leading-relaxed font-light">
@@ -920,8 +939,8 @@ console.log(name);      // "global"`}
                                     key={tab}
                                     onClick={() => setActiveTab(tab)}
                                     className={`px-6 py-3 rounded-xl font-bold text-sm transition-all duration-300 flex items-center gap-2 ${activeTab === tab
-                                            ? 'bg-gradient-to-r from-purple-500 to-indigo-600 text-white shadow-lg shadow-indigo-500/30'
-                                            : 'bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
+                                        ? 'bg-gradient-to-r from-purple-500 to-indigo-600 text-white shadow-lg shadow-indigo-500/30'
+                                        : 'bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
                                         }`}
                                 >
                                     {tab === 'theory' && <BookOpen className="w-4 h-4" />}
@@ -937,8 +956,6 @@ console.log(name);      // "global"`}
                         </div>
                     </div>
 
-                    {/* Scope Chain Visualization */}
-                    {/* Scope Chain Visualization */}
                     <div className="mb-8">
                         <h2 className="text-2xl md:text-3xl font-bold mb-6">
                             <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-purple-500">
@@ -1034,340 +1051,245 @@ console.log(name);      // "global"`}
                             </div>
                         </div>
                     </div>
-                                    <div className="mb-8">
-                                        <h2 className="text-2xl md:text-3xl font-bold mb-6">
-                                            <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-purple-500">
-                                                Scope Chain
+
+                    {/* Scope Type Cards */}
+                    <div className="mb-12">
+                        <h2 className="text-2xl md:text-3xl font-bold mb-6">
+                            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-500">
+                                Scope Types
+                            </span>
+                        </h2>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+                            {scopeTopics.map((topic) => {
+                                const Icon = topic.icon;
+                                return (
+                                    <button
+                                        key={topic.id}
+                                        onClick={() => setSelectedTopic(topic.id)}
+                                        className={`p-4 rounded-2xl border-2 transition-all duration-300 hover:scale-105 ${topic.bg} ${topic.border} ${selectedTopic === topic.id ? 'ring-2 ring-offset-2 ' + topic.color.replace('text-', 'ring-') : ''}`}
+                                    >
+                                        <div className="flex items-center gap-3 mb-3">
+                                            <div className={`p-2 rounded-lg ${topic.color.replace('text-', 'bg-').replace('500', '500/20')}`}>
+                                                <Icon className={`w-5 h-5 ${topic.color}`} />
+                                            </div>
+                                            <span className="font-bold text-slate-800 dark:text-slate-200">{topic.name}</span>
+                                        </div>
+                                        <p className="text-sm text-slate-600 dark:text-slate-400 mb-3 text-left">
+                                            {topic.description}
+                                        </p>
+                                        <div className="space-y-2 text-left">
+                                            <div className="flex items-center justify-between text-xs">
+                                                <span className="text-slate-500 dark:text-slate-500">Access:</span>
+                                                <span className="font-medium">{topic.accessibility}</span>
+                                            </div>
+                                            <div className="flex items-center justify-between text-xs">
+                                                <span className="text-slate-500 dark:text-slate-500">Variables:</span>
+                                                <span className="font-medium font-mono">{topic.variables}</span>
+                                            </div>
+                                        </div>
+                                    </button>
+                                );
+                            })}
+                        </div>
+                    </div>
+
+                    {/* Code Example Area */}
+                    <div className="mb-12">
+                        <div className="flex items-center justify-between mb-6">
+                            <h2 className="text-2xl md:text-3xl font-bold">
+                                <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-teal-500">
+                                    Interactive Examples
+                                </span>
+                            </h2>
+                            <div className="flex items-center gap-2">
+                                <button
+                                    onClick={() => setShowSolution(!showSolution)}
+                                    className="px-4 py-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors text-sm font-medium"
+                                >
+                                    {showSolution ? <EyeOff className="w-4 h-4 inline mr-2" /> : <Eye className="w-4 h-4 inline mr-2" />}
+                                    {showSolution ? 'Hide Solution' : 'Show Solution'}
+                                </button>
+                                <button
+                                    onClick={() => copyToClipboard(codeExamples[selectedTopic])}
+                                    className="px-4 py-2 rounded-lg bg-blue-100 dark:bg-blue-900/30 hover:bg-blue-200 dark:hover:bg-blue-900/50 transition-colors text-sm font-medium text-blue-600 dark:text-blue-400"
+                                >
+                                    <Copy className="w-4 h-4 inline mr-2" />
+                                    {copied ? 'Copied!' : 'Copy Code'}
+                                </button>
+                                <button
+                                    onClick={() => runCode(codeExamples[selectedTopic])}
+                                    className={`px-4 py-2 rounded-lg bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 transition-all ${pulseAnimation ? 'animate-pulse' : ''}`}
+                                >
+                                    <Play className="w-4 h-4 inline mr-2" />
+                                    Run Example
+                                </button>
+                            </div>
+                        </div>
+
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                            <div className="space-y-4">
+                                <div className="bg-slate-900 rounded-2xl overflow-hidden border border-slate-700">
+                                    <div className="flex items-center justify-between px-4 py-3 bg-slate-800 border-b border-slate-700">
+                                        <div className="flex items-center gap-2">
+                                            <Terminal className="w-4 h-4 text-emerald-400" />
+                                            <span className="font-mono text-sm text-slate-300">
+                                                {scopeTopics.find(t => t.id === selectedTopic)?.name} Example
                                             </span>
-                                        </h2>
-
-                                        <div className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-lg mb-8">
-                                            <div className="flex items-center justify-between mb-6">
-                                                <h3 className="text-xl font-bold text-slate-900 dark:text-white">
-                                                    Scope Chain Visualization
-                                                </h3>
-                                                <div className="flex gap-2">
-                                                    <button
-                                                        onClick={() => setIsExpanded(!isExpanded)}
-                                                        className="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
-                                                    >
-                                                        {isExpanded ? <Minimize2 className="w-4 h-4" /> : <Maximize2 className="w-4 h-4" />}
-                                                    </button>
-                                                </div>
-                                            </div>
-
-                                            <div className={`space-y-4 transition-all duration-300 ${isExpanded ? 'max-h-[600px]' : 'max-h-[400px] overflow-y-auto'}`}>
-                                                {scopeChain.map((scope, index) => (
-                                                    <div
-                                                        key={index}
-                                                        className={`p-4 rounded-xl border-2 transition-all duration-300 hover:scale-[1.02] ${scope.color} border-slate-200 dark:border-slate-700`}
-                                                        style={{
-                                                            marginLeft: `${scope.level * 2}rem`,
-                                                            borderLeftWidth: '4px',
-                                                            borderLeftColor: scope.level === 0 ? '#3b82f6' :
-                                                                scope.level === 1 ? '#8b5cf6' :
-                                                                    scope.level === 2 ? '#10b981' : '#f59e0b'
-                                                        }}
-                                                    >
-                                                        <div className="flex items-center justify-between">
-                                                            <div>
-                                                                <div className="flex items-center gap-2 mb-1">
-                                                                    <div className="w-2 h-2 rounded-full bg-blue-500"></div>
-                                                                    <span className="font-bold text-slate-800 dark:text-slate-200">
-                                                                        {scope.name}
-                                                                    </span>
-                                                                </div>
-                                                                <div className="flex flex-wrap gap-2">
-                                                                    {scope.variables.map((variable, i) => (
-                                                                        <span
-                                                                            key={i}
-                                                                            className="px-2 py-1 text-xs rounded-lg bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-mono"
-                                                                        >
-                                                                            {variable}
-                                                                        </span>
-                                                                    ))}
-                                                                </div>
-                                                            </div>
-                                                            <div className="text-right">
-                                                                <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">
-                                                                    Level {scope.level}
-                                                                </div>
-                                                                {scope.level > 0 && (
-                                                                    <div className="flex items-center gap-1 text-xs text-slate-600 dark:text-slate-300">
-                                                                        <ArrowLeft className="w-3 h-3" />
-                                                                        Can access parent scope
-                                                                    </div>
-                                                                )}
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                ))}
-
-                                                {/* Scope Chain Diagram */}
-                                                <div className="relative mt-8 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-2xl border border-blue-200 dark:border-blue-800">
-                                                    <h4 className="text-lg font-bold mb-4 text-slate-800 dark:text-slate-200">
-                                                        Scope Chain Lookup Flow
-                                                    </h4>
-                                                    <div className="flex flex-col items-center">
-                                                        {scopeChain.map((scope, index) => (
-                                                            <div key={index} className="flex flex-col items-center">
-                                                                <div className={`w-32 h-16 rounded-lg flex items-center justify-center ${scope.level === 0 ? 'bg-blue-500' : scope.level === 1 ? 'bg-purple-500' : scope.level === 2 ? 'bg-green-500' : 'bg-yellow-500'} text-white font-bold mb-2`}>
-                                                                    {scope.name}
-                                                                </div>
-                                                                {index < scopeChain.length - 1 && (
-                                                                    <div className="w-1 h-8 bg-slate-300 dark:bg-slate-600 mb-2 relative">
-                                                                        <ArrowDown className="w-4 h-4 absolute -bottom-2 left-1/2 transform -translate-x-1/2 text-slate-400" />
-                                                                    </div>
-                                                                )}
-                                                            </div>
-                                                        ))}
-                                                    </div>
-                                                    <div className="text-center mt-4 text-sm text-slate-600 dark:text-slate-400">
-                                                        When JavaScript looks for a variable, it starts from current scope and moves upward
-                                                    </div>
-                                                </div>
-                                            </div>
+                                        </div>
+                                        <div className="flex items-center gap-1 text-xs text-slate-400">
+                                            <Code className="w-3 h-3" />
+                                            JavaScript
                                         </div>
                                     </div>
+                                    <pre className="p-4 overflow-x-auto text-sm">
+                                        <code className="text-slate-300 font-mono">
+                                            {codeExamples[selectedTopic]}
+                                        </code>
+                                    </pre>
+                                </div>
 
-                                    {/* Scope Type Cards */}
-                                    <div className="mb-12">
-                                        <h2 className="text-2xl md:text-3xl font-bold mb-6">
-                                            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-500">
-                                                Scope Types
-                                            </span>
-                                        </h2>
+                                <div className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/10 dark:to-indigo-900/10 p-4 rounded-2xl border border-blue-200 dark:border-blue-800">
+                                    <h4 className="font-bold mb-2 text-blue-800 dark:text-blue-300 flex items-center gap-2">
+                                        <AlertCircle className="w-4 h-4" />
+                                        Key Insights
+                                    </h4>
+                                    <ul className="space-y-2 text-sm text-slate-700 dark:text-slate-400">
+                                        {selectedTopic === 'global' && (
+                                            <>
+                                                <li>• Global variables can be accessed from anywhere</li>
+                                                <li>• Be careful of global namespace pollution</li>
+                                                <li>• Use modules or IIFEs to avoid globals</li>
+                                            </>
+                                        )}
+                                        {selectedTopic === 'function' && (
+                                            <>
+                                                <li>• Function scope includes parameters</li>
+                                                <li>• Inner functions can access outer variables</li>
+                                                <li>• Variables aren't shared between functions</li>
+                                            </>
+                                        )}
+                                        {selectedTopic === 'block' && (
+                                            <>
+                                                <li>• let/const are block-scoped (ES6+)</li>
+                                                <li>• var is NOT block-scoped (it's function-scoped)</li>
+                                                <li>• Each loop iteration creates new scope</li>
+                                            </>
+                                        )}
+                                        {selectedTopic === 'hoisting' && (
+                                            <>
+                                                <li>• var: hoisted and initialized as undefined</li>
+                                                <li>• let/const: hoisted but in TDZ (not initialized)</li>
+                                                <li>• Function declarations: fully hoisted</li>
+                                            </>
+                                        )}
+                                        {selectedTopic === 'lexical' && (
+                                            <>
+                                                <li>• Scope determined by where code is written</li>
+                                                <li>• Forms the basis of closures</li>
+                                                <li>• Nested functions have access to parent scopes</li>
+                                            </>
+                                        )}
+                                    </ul>
+                                </div>
+                            </div>
 
-                                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
-                                            {scopeTopics.map((topic) => {
-                                                const Icon = topic.icon;
-                                                return (
-                                                    <button
-                                                        key={topic.id}
-                                                        onClick={() => setSelectedTopic(topic.id)}
-                                                        className={`p-4 rounded-2xl border-2 transition-all duration-300 hover:scale-105 ${topic.bg} ${topic.border} ${selectedTopic === topic.id ? 'ring-2 ring-offset-2 ' + topic.color.replace('text-', 'ring-') : ''}`}
-                                                    >
-                                                        <div className="flex items-center gap-3 mb-3">
-                                                            <div className={`p-2 rounded-lg ${topic.color.replace('text-', 'bg-').replace('500', '500/20')}`}>
-                                                                <Icon className={`w-5 h-5 ${topic.color}`} />
-                                                            </div>
-                                                            <span className="font-bold text-slate-800 dark:text-slate-200">{topic.name}</span>
-                                                        </div>
-                                                        <p className="text-sm text-slate-600 dark:text-slate-400 mb-3 text-left">
-                                                            {topic.description}
-                                                        </p>
-                                                        <div className="space-y-2 text-left">
-                                                            <div className="flex items-center justify-between text-xs">
-                                                                <span className="text-slate-500 dark:text-slate-500">Access:</span>
-                                                                <span className="font-medium">{topic.accessibility}</span>
-                                                            </div>
-                                                            <div className="flex items-center justify-between text-xs">
-                                                                <span className="text-slate-500 dark:text-slate-500">Variables:</span>
-                                                                <span className="font-medium font-mono">{topic.variables}</span>
-                                                            </div>
-                                                        </div>
-                                                    </button>
-                                                );
-                                            })}
+                            <div className="space-y-4">
+                                <div className="bg-slate-800 rounded-2xl overflow-hidden border border-slate-700">
+                                    <div className="flex items-center justify-between px-4 py-3 bg-slate-900 border-b border-slate-700">
+                                        <div className="flex items-center gap-2">
+                                            <Cpu className="w-4 h-4 text-amber-400" />
+                                            <span className="font-mono text-sm text-slate-300">Output</span>
+                                        </div>
+                                        <button
+                                            onClick={() => setOutput('')}
+                                            className="text-xs text-slate-400 hover:text-slate-300 transition-colors"
+                                        >
+                                            Clear Output
+                                        </button>
+                                    </div>
+                                    <div className="p-4">
+                                        <pre className="text-slate-300 font-mono text-sm whitespace-pre-wrap">
+                                            {output || 'Output will appear here after running code...'}
+                                        </pre>
+                                    </div>
+                                </div>
+
+                                <div className="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-900/10 dark:to-orange-900/10 p-4 rounded-2xl border border-amber-200 dark:border-amber-800">
+                                    <h4 className="font-bold mb-2 text-amber-800 dark:text-amber-300 flex items-center gap-2">
+                                        <Zap className="w-4 h-4" />
+                                        Pro Tip
+                                    </h4>
+                                    <p className="text-sm text-slate-700 dark:text-slate-400">
+                                        {selectedTopic === 'global' &&
+                                            "Use 'use strict' to prevent accidental global variables"}
+                                        {selectedTopic === 'function' &&
+                                            "Keep functions small and focused to avoid scope confusion"}
+                                        {selectedTopic === 'block' &&
+                                            "Prefer let/const over var for better block scoping"}
+                                        {selectedTopic === 'hoisting' &&
+                                            "Declare all variables at the top of their scope for clarity"}
+                                        {selectedTopic === 'lexical' &&
+                                            "Leverage lexical scoping for data encapsulation and closures"}
+                                    </p>
+                                </div>
+
+                                <div className="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/10 dark:to-pink-900/10 p-4 rounded-2xl border border-purple-200 dark:border-purple-800">
+                                    <h4 className="font-bold mb-2 text-purple-800 dark:text-purple-300 flex items-center gap-2">
+                                        <TrendingUp className="w-4 h-4" />
+                                        Scope Level: {scopeLevel}
+                                    </h4>
+                                    <div className="w-full bg-slate-200 dark:bg-slate-800 rounded-full h-2 mb-2">
+                                        <div
+                                            className="bg-gradient-to-r from-purple-500 to-pink-500 h-full rounded-full transition-all duration-500"
+                                            style={{ width: `${Math.min(scopeLevel * 10, 100)}%` }}
+                                        ></div>
+                                    </div>
+                                    <p className="text-xs text-slate-600 dark:text-slate-400">
+                                        Run more examples to master scope concepts!
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Practice Area */}
+                    <div className="mb-12">
+                        <div className="flex items-center justify-between mb-6">
+                            <h2 className="text-2xl md:text-3xl font-bold">
+                                <span className="bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-orange-500">
+                                    Practice Zone
+                                </span>
+                            </h2>
+                            <div className="flex items-center gap-2">
+                                <button
+                                    onClick={clearPractice}
+                                    className="px-4 py-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors text-sm font-medium"
+                                >
+                                    <RefreshCw className="w-4 h-4 inline mr-2" />
+                                    Clear
+                                </button>
+                            </div>
+                        </div>
+
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                            <div className="space-y-4">
+                                <div className="bg-slate-900 rounded-2xl overflow-hidden border border-slate-700">
+                                    <div className="flex items-center justify-between px-4 py-3 bg-slate-800 border-b border-slate-700">
+                                        <div className="flex items-center gap-2">
+                                            <Code className="w-4 h-4 text-amber-400" />
+                                            <span className="font-mono text-sm text-slate-300">Practice Editor</span>
+                                        </div>
+                                        <div className="flex items-center gap-1 text-xs text-slate-400">
+                                            <Package className="w-3 h-3" />
+                                            Try your own scope code
                                         </div>
                                     </div>
-
-                                    {/* Code Example Area */}
-                                    <div className="mb-12">
-                                        <div className="flex items-center justify-between mb-6">
-                                            <h2 className="text-2xl md:text-3xl font-bold">
-                                                <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-teal-500">
-                                                    Interactive Examples
-                                                </span>
-                                            </h2>
-                                            <div className="flex items-center gap-2">
-                                                <button
-                                                    onClick={() => setShowSolution(!showSolution)}
-                                                    className="px-4 py-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors text-sm font-medium"
-                                                >
-                                                    {showSolution ? <EyeOff className="w-4 h-4 inline mr-2" /> : <Eye className="w-4 h-4 inline mr-2" />}
-                                                    {showSolution ? 'Hide Solution' : 'Show Solution'}
-                                                </button>
-                                                <button
-                                                    onClick={() => copyToClipboard(codeExamples[selectedTopic])}
-                                                    className="px-4 py-2 rounded-lg bg-blue-100 dark:bg-blue-900/30 hover:bg-blue-200 dark:hover:bg-blue-900/50 transition-colors text-sm font-medium text-blue-600 dark:text-blue-400"
-                                                >
-                                                    <Copy className="w-4 h-4 inline mr-2" />
-                                                    {copied ? 'Copied!' : 'Copy Code'}
-                                                </button>
-                                                <button
-                                                    onClick={() => runCode(codeExamples[selectedTopic])}
-                                                    className={`px-4 py-2 rounded-lg bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 transition-all ${pulseAnimation ? 'animate-pulse' : ''}`}
-                                                >
-                                                    <Play className="w-4 h-4 inline mr-2" />
-                                                    Run Example
-                                                </button>
-                                            </div>
-                                        </div>
-
-                                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                                            <div className="space-y-4">
-                                                <div className="bg-slate-900 rounded-2xl overflow-hidden border border-slate-700">
-                                                    <div className="flex items-center justify-between px-4 py-3 bg-slate-800 border-b border-slate-700">
-                                                        <div className="flex items-center gap-2">
-                                                            <Terminal className="w-4 h-4 text-emerald-400" />
-                                                            <span className="font-mono text-sm text-slate-300">
-                                                                {scopeTopics.find(t => t.id === selectedTopic)?.name} Example
-                                                            </span>
-                                                        </div>
-                                                        <div className="flex items-center gap-1 text-xs text-slate-400">
-                                                            <Code className="w-3 h-3" />
-                                                            JavaScript
-                                                        </div>
-                                                    </div>
-                                                    <pre className="p-4 overflow-x-auto text-sm">
-                                                        <code className="text-slate-300 font-mono">
-                                                            {codeExamples[selectedTopic]}
-                                                        </code>
-                                                    </pre>
-                                                </div>
-
-                                                <div className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/10 dark:to-indigo-900/10 p-4 rounded-2xl border border-blue-200 dark:border-blue-800">
-                                                    <h4 className="font-bold mb-2 text-blue-800 dark:text-blue-300 flex items-center gap-2">
-                                                        <AlertCircle className="w-4 h-4" />
-                                                        Key Insights
-                                                    </h4>
-                                                    <ul className="space-y-2 text-sm text-slate-700 dark:text-slate-400">
-                                                        {selectedTopic === 'global' && (
-                                                            <>
-                                                                <li>• Global variables can be accessed from anywhere</li>
-                                                                <li>• Be careful of global namespace pollution</li>
-                                                                <li>• Use modules or IIFEs to avoid globals</li>
-                                                            </>
-                                                        )}
-                                                        {selectedTopic === 'function' && (
-                                                            <>
-                                                                <li>• Function scope includes parameters</li>
-                                                                <li>• Inner functions can access outer variables</li>
-                                                                <li>• Variables aren't shared between functions</li>
-                                                            </>
-                                                        )}
-                                                        {selectedTopic === 'block' && (
-                                                            <>
-                                                                <li>• let/const are block-scoped (ES6+)</li>
-                                                                <li>• var is NOT block-scoped (it's function-scoped)</li>
-                                                                <li>• Each loop iteration creates new scope</li>
-                                                            </>
-                                                        )}
-                                                        {selectedTopic === 'hoisting' && (
-                                                            <>
-                                                                <li>• var: hoisted and initialized as undefined</li>
-                                                                <li>• let/const: hoisted but in TDZ (not initialized)</li>
-                                                                <li>• Function declarations: fully hoisted</li>
-                                                            </>
-                                                        )}
-                                                        {selectedTopic === 'lexical' && (
-                                                            <>
-                                                                <li>• Scope determined by where code is written</li>
-                                                                <li>• Forms the basis of closures</li>
-                                                                <li>• Nested functions have access to parent scopes</li>
-                                                            </>
-                                                        )}
-                                                    </ul>
-                                                </div>
-                                            </div>
-
-                                            <div className="space-y-4">
-                                                <div className="bg-slate-800 rounded-2xl overflow-hidden border border-slate-700">
-                                                    <div className="flex items-center justify-between px-4 py-3 bg-slate-900 border-b border-slate-700">
-                                                        <div className="flex items-center gap-2">
-                                                            <Cpu className="w-4 h-4 text-amber-400" />
-                                                            <span className="font-mono text-sm text-slate-300">Output</span>
-                                                        </div>
-                                                        <button
-                                                            onClick={() => setOutput('')}
-                                                            className="text-xs text-slate-400 hover:text-slate-300 transition-colors"
-                                                        >
-                                                            Clear Output
-                                                        </button>
-                                                    </div>
-                                                    <div className="p-4">
-                                                        <pre className="text-slate-300 font-mono text-sm whitespace-pre-wrap">
-                                                            {output || 'Output will appear here after running code...'}
-                                                        </pre>
-                                                    </div>
-                                                </div>
-
-                                                <div className="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-900/10 dark:to-orange-900/10 p-4 rounded-2xl border border-amber-200 dark:border-amber-800">
-                                                    <h4 className="font-bold mb-2 text-amber-800 dark:text-amber-300 flex items-center gap-2">
-                                                        <Zap className="w-4 h-4" />
-                                                        Pro Tip
-                                                    </h4>
-                                                    <p className="text-sm text-slate-700 dark:text-slate-400">
-                                                        {selectedTopic === 'global' &&
-                                                            "Use 'use strict' to prevent accidental global variables"}
-                                                        {selectedTopic === 'function' &&
-                                                            "Keep functions small and focused to avoid scope confusion"}
-                                                        {selectedTopic === 'block' &&
-                                                            "Prefer let/const over var for better block scoping"}
-                                                        {selectedTopic === 'hoisting' &&
-                                                            "Declare all variables at the top of their scope for clarity"}
-                                                        {selectedTopic === 'lexical' &&
-                                                            "Leverage lexical scoping for data encapsulation and closures"}
-                                                    </p>
-                                                </div>
-
-                                                <div className="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/10 dark:to-pink-900/10 p-4 rounded-2xl border border-purple-200 dark:border-purple-800">
-                                                    <h4 className="font-bold mb-2 text-purple-800 dark:text-purple-300 flex items-center gap-2">
-                                                        <TrendingUp className="w-4 h-4" />
-                                                        Scope Level: {scopeLevel}
-                                                    </h4>
-                                                    <div className="w-full bg-slate-200 dark:bg-slate-800 rounded-full h-2 mb-2">
-                                                        <div
-                                                            className="bg-gradient-to-r from-purple-500 to-pink-500 h-full rounded-full transition-all duration-500"
-                                                            style={{ width: `${Math.min(scopeLevel * 10, 100)}%` }}
-                                                        ></div>
-                                                    </div>
-                                                    <p className="text-xs text-slate-600 dark:text-slate-400">
-                                                        Run more examples to master scope concepts!
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    {/* Practice Area */}
-                                    <div className="mb-12">
-                                        <div className="flex items-center justify-between mb-6">
-                                            <h2 className="text-2xl md:text-3xl font-bold">
-                                                <span className="bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-orange-500">
-                                                    Practice Zone
-                                                </span>
-                                            </h2>
-                                            <div className="flex items-center gap-2">
-                                                <button
-                                                    onClick={clearPractice}
-                                                    className="px-4 py-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors text-sm font-medium"
-                                                >
-                                                    <RefreshCw className="w-4 h-4 inline mr-2" />
-                                                    Clear
-                                                </button>
-                                            </div>
-                                        </div>
-
-                                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                                            <div className="space-y-4">
-                                                <div className="bg-slate-900 rounded-2xl overflow-hidden border border-slate-700">
-                                                    <div className="flex items-center justify-between px-4 py-3 bg-slate-800 border-b border-slate-700">
-                                                        <div className="flex items-center gap-2">
-                                                            <Code className="w-4 h-4 text-amber-400" />
-                                                            <span className="font-mono text-sm text-slate-300">Practice Editor</span>
-                                                        </div>
-                                                        <div className="flex items-center gap-1 text-xs text-slate-400">
-                                                            <Package className="w-3 h-3" />
-                                                            Try your own scope code
-                                                        </div>
-                                                    </div>
-                                                    <div className="p-4">
-                                                        <textarea
-                                                            value={userCode}
-                                                            onChange={(e) => setUserCode(e.target.value)}
-                                                            placeholder={`// Try writing some scope-related code!
+                                    <div className="p-4">
+                                        <textarea
+                                            value={userCode}
+                                            onChange={(e) => setUserCode(e.target.value)}
+                                            placeholder={`// Try writing some scope-related code!
 // Example:
 let global = "I'm global";
 
@@ -1380,137 +1302,137 @@ function testScope() {
 
 testScope();
 // console.log(local); // What happens?`}
-                                                            className="w-full h-64 bg-slate-950 text-slate-300 font-mono text-sm p-4 rounded-lg border border-slate-700 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent resize-none"
-                                                            spellCheck="false"
-                                                        />
-                                                    </div>
-                                                </div>
-
-                                                <button
-                                                    onClick={runPracticeCode}
-                                                    className="w-full py-3 rounded-xl bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 transition-all font-bold text-white flex items-center justify-center gap-2"
-                                                >
-                                                    <Play className="w-4 h-4" />
-                                                    Run Practice Code
-                                                </button>
-                                            </div>
-
-                                            <div className="space-y-4">
-                                                <div className="bg-slate-800 rounded-2xl overflow-hidden border border-slate-700">
-                                                    <div className="flex items-center justify-between px-4 py-3 bg-slate-900 border-b border-slate-700">
-                                                        <div className="flex items-center gap-2">
-                                                            <Terminal className="w-4 h-4 text-green-400" />
-                                                            <span className="font-mono text-sm text-slate-300">Practice Output</span>
-                                                        </div>
-                                                        <div className="text-xs text-slate-400">
-                                                            Results appear here
-                                                        </div>
-                                                    </div>
-                                                    <div className="p-4">
-                                                        <pre className="text-slate-300 font-mono text-sm whitespace-pre-wrap min-h-[200px]">
-                                                            {practiceOutput || 'Practice output will appear here...'}
-                                                        </pre>
-                                                    </div>
-                                                </div>
-
-                                                <div className="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/10 dark:to-emerald-900/10 p-4 rounded-2xl border border-green-200 dark:border-green-800">
-                                                    <h4 className="font-bold mb-2 text-green-800 dark:text-green-300 flex items-center gap-2">
-                                                        <CheckCircle className="w-4 h-4" />
-                                                        Challenge Tasks
-                                                    </h4>
-                                                    <ul className="space-y-2 text-sm text-slate-700 dark:text-slate-400">
-                                                        <li>• Create a closure that remembers a counter</li>
-                                                        <li>• Demonstrate variable shadowing</li>
-                                                        <li>• Show TDZ error with let/const</li>
-                                                        <li>• Create a module pattern using scope</li>
-                                                        <li>• Fix a scope-related bug in code</li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
+                                            className="w-full h-64 bg-slate-950 text-slate-300 font-mono text-sm p-4 rounded-lg border border-slate-700 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent resize-none"
+                                            spellCheck="false"
+                                        />
                                     </div>
+                                </div>
 
-                                    {/* Solution Section */}
-                                    {showSolution && (
-                                        <div className="mb-12 animate-in fade-in duration-500">
-                                            <div className="flex items-center justify-between mb-6">
-                                                <h2 className="text-2xl md:text-3xl font-bold">
-                                                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-emerald-500">
-                                                        Complete Solution
-                                                    </span>
-                                                </h2>
-                                                <button
-                                                    onClick={() => copyToClipboard(solutionCode)}
-                                                    className="px-4 py-2 rounded-lg bg-green-100 dark:bg-green-900/30 hover:bg-green-200 dark:hover:bg-green-900/50 transition-colors text-sm font-medium text-green-600 dark:text-green-400"
-                                                >
-                                                    <Copy className="w-4 h-4 inline mr-2" />
-                                                    Copy Solution
-                                                </button>
-                                            </div>
-
-                                            <div className="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/10 dark:to-emerald-900/10 rounded-2xl border border-green-200 dark:border-green-800 overflow-hidden">
-                                                <div className="p-4 bg-green-100 dark:bg-green-900/30 border-b border-green-200 dark:border-green-800">
-                                                    <div className="flex items-center gap-2">
-                                                        <Calculator className="w-5 h-5 text-green-600 dark:text-green-400" />
-                                                        <span className="font-bold text-green-800 dark:text-green-300">
-                                                            Scope Chain Demonstration
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                                <pre className="p-4 overflow-x-auto text-sm">
-                                                    <code className="text-slate-700 dark:text-slate-300 font-mono">
-                                                        {solutionCode}
-                                                    </code>
-                                                </pre>
-                                            </div>
-
-                                            <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
-                                                <div className="p-4 rounded-xl bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800">
-                                                    <div className="text-xs text-blue-600 dark:text-blue-400 font-bold mb-1">Scope Chain</div>
-                                                    <div className="text-sm text-slate-700 dark:text-slate-400">
-                                                        Demonstrates nested scope access patterns
-                                                    </div>
-                                                </div>
-                                                <div className="p-4 rounded-xl bg-purple-50 dark:bg-purple-900/20 border border-purple-200 dark:border-purple-800">
-                                                    <div className="text-xs text-purple-600 dark:text-purple-400 font-bold mb-1">Hoisting</div>
-                                                    <div className="text-sm text-slate-700 dark:text-slate-400">
-                                                        Shows var vs let/const hoisting differences
-                                                    </div>
-                                                </div>
-                                                <div className="p-4 rounded-xl bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800">
-                                                    <div className="text-xs text-amber-600 dark:text-amber-400 font-bold mb-1">TDZ</div>
-                                                    <div className="text-sm text-slate-700 dark:text-slate-400">
-                                                        Temporal Dead Zone demonstration
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    )}
-
-                                    {/* Navigation */}
-                                    <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 mt-12 border-t border-slate-200 dark:border-slate-800">
-                                        <div className="flex items-center gap-3 text-slate-600 dark:text-slate-400">
-                                            <div className="w-8 h-8 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center">
-                                                <Layers className="w-4 h-4 text-purple-600 dark:text-purple-400" />
-                                            </div>
-                                            <span className="text-sm">
-                                                Lesson 6: Scope & Hoisting
-                                            </span>
-                                        </div>
-
-                                        <div className="flex items-center gap-4">
-                                            <button className="px-6 py-3 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors font-medium flex items-center gap-2">
-                                                <ArrowLeft className="w-4 h-4" />
-                                                Previous: Arrays & Objects
-                                            </button>
-                                            <button className="px-6 py-3 rounded-xl bg-gradient-to-r from-purple-500 to-indigo-600 hover:from-purple-600 hover:to-indigo-700 transition-all font-medium text-white flex items-center gap-2">
-                                                Next: Closures & IIFE
-                                                <ArrowRight className="w-4 h-4" />
-                                            </button>
-                                        </div>
-                                    </div>
+                                <button
+                                    onClick={runPracticeCode}
+                                    className="w-full py-3 rounded-xl bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 transition-all font-bold text-white flex items-center justify-center gap-2"
+                                >
+                                    <Play className="w-4 h-4" />
+                                    Run Practice Code
+                                </button>
                             </div>
-                        </main>
+
+                            <div className="space-y-4">
+                                <div className="bg-slate-800 rounded-2xl overflow-hidden border border-slate-700">
+                                    <div className="flex items-center justify-between px-4 py-3 bg-slate-900 border-b border-slate-700">
+                                        <div className="flex items-center gap-2">
+                                            <Terminal className="w-4 h-4 text-green-400" />
+                                            <span className="font-mono text-sm text-slate-300">Practice Output</span>
+                                        </div>
+                                        <div className="text-xs text-slate-400">
+                                            Results appear here
+                                        </div>
+                                    </div>
+                                    <div className="p-4">
+                                        <pre className="text-slate-300 font-mono text-sm whitespace-pre-wrap min-h-[200px]">
+                                            {practiceOutput || 'Practice output will appear here...'}
+                                        </pre>
+                                    </div>
+                                </div>
+
+                                <div className="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/10 dark:to-emerald-900/10 p-4 rounded-2xl border border-green-200 dark:border-green-800">
+                                    <h4 className="font-bold mb-2 text-green-800 dark:text-green-300 flex items-center gap-2">
+                                        <CheckCircle className="w-4 h-4" />
+                                        Challenge Tasks
+                                    </h4>
+                                    <ul className="space-y-2 text-sm text-slate-700 dark:text-slate-400">
+                                        <li>• Create a closure that remembers a counter</li>
+                                        <li>• Demonstrate variable shadowing</li>
+                                        <li>• Show TDZ error with let/const</li>
+                                        <li>• Create a module pattern using scope</li>
+                                        <li>• Fix a scope-related bug in code</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    );
+
+                    {/* Solution Section */}
+                    {showSolution && (
+                        <div className="mb-12 animate-in fade-in duration-500">
+                            <div className="flex items-center justify-between mb-6">
+                                <h2 className="text-2xl md:text-3xl font-bold">
+                                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-emerald-500">
+                                        Complete Solution
+                                    </span>
+                                </h2>
+                                <button
+                                    onClick={() => copyToClipboard(solutionCode)}
+                                    className="px-4 py-2 rounded-lg bg-green-100 dark:bg-green-900/30 hover:bg-green-200 dark:hover:bg-green-900/50 transition-colors text-sm font-medium text-green-600 dark:text-green-400"
+                                >
+                                    <Copy className="w-4 h-4 inline mr-2" />
+                                    Copy Solution
+                                </button>
+                            </div>
+
+                            <div className="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/10 dark:to-emerald-900/10 rounded-2xl border border-green-200 dark:border-green-800 overflow-hidden">
+                                <div className="p-4 bg-green-100 dark:bg-green-900/30 border-b border-green-200 dark:border-green-800">
+                                    <div className="flex items-center gap-2">
+                                        <Calculator className="w-5 h-5 text-green-600 dark:text-green-400" />
+                                        <span className="font-bold text-green-800 dark:text-green-300">
+                                            Scope Chain Demonstration
+                                        </span>
+                                    </div>
+                                </div>
+                                <pre className="p-4 overflow-x-auto text-sm">
+                                    <code className="text-slate-700 dark:text-slate-300 font-mono">
+                                        {solutionCode}
+                                    </code>
+                                </pre>
+                            </div>
+
+                            <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <div className="p-4 rounded-xl bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800">
+                                    <div className="text-xs text-blue-600 dark:text-blue-400 font-bold mb-1">Scope Chain</div>
+                                    <div className="text-sm text-slate-700 dark:text-slate-400">
+                                        Demonstrates nested scope access patterns
+                                    </div>
+                                </div>
+                                <div className="p-4 rounded-xl bg-purple-50 dark:bg-purple-900/20 border border-purple-200 dark:border-purple-800">
+                                    <div className="text-xs text-purple-600 dark:text-purple-400 font-bold mb-1">Hoisting</div>
+                                    <div className="text-sm text-slate-700 dark:text-slate-400">
+                                        Shows var vs let/const hoisting differences
+                                    </div>
+                                </div>
+                                <div className="p-4 rounded-xl bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800">
+                                    <div className="text-xs text-amber-600 dark:text-amber-400 font-bold mb-1">TDZ</div>
+                                    <div className="text-sm text-slate-700 dark:text-slate-400">
+                                        Temporal Dead Zone demonstration
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+
+                    {/* Navigation */}
+                    <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 mt-12 border-t border-slate-200 dark:border-slate-800">
+                        <div className="flex items-center gap-3 text-slate-600 dark:text-slate-400">
+                            <div className="w-8 h-8 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center">
+                                <Layers className="w-4 h-4 text-purple-600 dark:text-purple-400" />
+                            </div>
+                            <span className="text-sm">
+                                Lesson 6: Scope & Hoisting
+                            </span>
+                        </div>
+
+                        <div className="flex items-center gap-4">
+                            <button className="px-6 py-3 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors font-medium flex items-center gap-2">
+                                <ArrowLeft className="w-4 h-4" />
+                                Previous: Arrays & Objects
+                            </button>
+                            <button className="px-6 py-3 rounded-xl bg-gradient-to-r from-purple-500 to-indigo-600 hover:from-purple-600 hover:to-indigo-700 transition-all font-medium text-white flex items-center gap-2">
+                                Next: Closures & IIFE
+                                <ArrowRight className="w-4 h-4" />
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    );
 }
