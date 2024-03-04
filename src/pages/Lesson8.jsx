@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import {
     CheckSquare, Code, Play, Terminal, Lightbulb,
     AlertTriangle, ChevronRight, Copy, RotateCcw,
-    Hash, Grid, Zap, ArrowRight, ArrowLeft, RefreshCw,
+    Hash, Grid, Zap, ArrowRight, ArrowLeft, RefreshCw, ChevronLeft,
     Lock, Unlock, Globe, Target, Cpu, Package,
     Download, Upload, Split, Merge, Type, Filter,
     Battery, Shield, Eye, EyeOff, Infinity, Award
@@ -1029,7 +1029,10 @@ console.log('Modern JavaScript is awesome!');`);
                                         </div>
 
                                         <div className="p-3 bg-slate-50 dark:bg-slate-800 rounded-lg">
-                                            <code className="text-sm text-purple-600 dark:text-purple-400">(x) => x * 2</code>
+                                            <code className="text-sm text-purple-600 dark:text-purple-400">
+                                                (x) =&gt; x * 2
+                                            </code>
+
                                             <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Arrow function</p>
                                         </div>
 
