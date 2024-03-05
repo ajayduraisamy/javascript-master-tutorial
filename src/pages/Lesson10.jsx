@@ -7,7 +7,7 @@ import {
     ArrowUpDown, Split, Merge, BookOpen, Brain,
     Folder, Lock, Unlock, Link, Shield, Database,
     Zap, Eye, EyeOff, Wrench, Settings, GitBranch,
-    Cogs, Package, Users, Globe, Target, Layers2,
+    Cog, Package, Users, Globe, Target, Layers2,
     Unfold, Combine, SplitSquare, Boxes, PackageOpen,
     ScatterChart, Braces, ArrowRightLeft, GitMerge,
     GitPullRequest, Workflow, Palette, Map
@@ -1252,7 +1252,10 @@ console.log('State with toggled theme:', newState3);`,
                                             <div className="p-4 bg-slate-50 dark:bg-slate-800 rounded-lg">
                                                 <h4 className="font-medium mb-2">Object Spread</h4>
                                                 <div className="flex items-center justify-between mb-2">
-                                                    <code className="text-sm bg-slate-200 dark:bg-slate-700 px-2 py-1 rounded">const merged = {...obj1, ...obj2}</code>
+                                                    <code className="text-sm bg-slate-200 dark:bg-slate-700 px-2 py-1 rounded">
+                                                        {"const merged = {...obj1, ...obj2}"}
+                                                    </code>
+
                                                     <button className="text-xs text-blue-600 hover:underline">Visualize</button>
                                                 </div>
                                                 <div className="flex flex-col gap-2">
