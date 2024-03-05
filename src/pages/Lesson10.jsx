@@ -1144,3 +1144,225 @@ console.log('State with toggled theme:', newState3);`,
                                             Array Destructuring
                                         </button>
                                         <button
+                                            onClick={() => setCode(`// Object Destructuring Practice\nconst user = {\n  id: 1,\n  name: 'Alice',\n  email: 'alice@example.com',\n  settings: { theme: 'dark', notifications: true }\n};\n// Your code here`)}
+                                            className="w-full text-left p-2 text-sm hover:bg-slate-100 dark:hover:bg-slate-800 rounded"
+                                        >
+                                            Object Destructuring
+                                        </button>
+                                        <button
+                                            onClick={() => setCode(`// Spread Practice\nconst arr1 = [1, 2];\nconst arr2 = [3, 4];\nconst obj1 = { a: 1 };\nconst obj2 = { b: 2 };\n// Your code here`)}
+                                            className="w-full text-left p-2 text-sm hover:bg-slate-100 dark:hover:bg-slate-800 rounded"
+                                        >
+                                            Spread Operator
+                                        </button>
+                                        <button
+                                            onClick={() => setCode(`// Rest Practice\nfunction process(...args) {\n  // Your code here\n}\n// Test with: process(1, 2, 3, 4, 5);`)}
+                                            className="w-full text-left p-2 text-sm hover:bg-slate-100 dark:hover:bg-slate-800 rounded"
+                                        >
+                                            Rest Parameters
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div className="bg-white dark:bg-slate-900 p-6 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800">
+                                    <h3 className="font-bold text-slate-900 dark:text-white mb-4">Tips</h3>
+                                    <ul className="text-sm text-slate-600 dark:text-slate-400 space-y-2">
+                                        <li className="flex items-start gap-2">
+                                            <div className="w-2 h-2 bg-blue-500 rounded-full mt-1.5"></div>
+                                            <span>Use defaults to handle missing values</span>
+                                        </li>
+                                        <li className="flex items-start gap-2">
+                                            <div className="w-2 h-2 bg-green-500 rounded-full mt-1.5"></div>
+                                            <span>Rename variables to avoid conflicts</span>
+                                        </li>
+                                        <li className="flex items-start gap-2">
+                                            <div className="w-2 h-2 bg-purple-500 rounded-full mt-1.5"></div>
+                                            <span>Spread creates shallow copies only</span>
+                                        </li>
+                                        <li className="flex items-start gap-2">
+                                            <div className="w-2 h-2 bg-orange-500 rounded-full mt-1.5"></div>
+                                            <span>Rest must be the last element in destructuring</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div className="lg:col-span-2">
+                                <div className="bg-slate-900 rounded-2xl overflow-hidden shadow-xl ring-1 ring-slate-800 h-full flex flex-col">
+                                    <div className="flex justify-between items-center bg-slate-950/50 px-4 py-3 border-b border-slate-800">
+                                        <span className="font-mono text-xs text-slate-400">playground.js</span>
+                                        <div className="flex gap-2">
+                                            <button onClick={resetCode} className="text-xs text-slate-400 hover:text-white px-2 py-1">Reset</button>
+                                            <button onClick={copyCode} className="text-xs text-slate-400 hover:text-white px-2 py-1">Copy</button>
+                                            <button onClick={runCode} className="flex items-center gap-1.5 px-3 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-white rounded-md text-xs font-semibold transition-colors">
+                                                <Play className="w-3 h-3" /> Run
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <textarea
+                                        value={code}
+                                        onChange={(e) => setCode(e.target.value)}
+                                        className="flex-1 w-full bg-slate-950 text-slate-300 font-mono text-sm p-4 focus:outline-none min-h-[400px]"
+                                        spellCheck="false"
+                                    />
+                                    {output && (
+                                        <div className="border-t border-slate-800 bg-slate-950 p-4">
+                                            <div className="flex justify-between items-center mb-2">
+                                                <span className="text-xs font-semibold text-slate-500">Output</span>
+                                                <button onClick={() => setOutput('')} className="text-xs text-slate-500 hover:text-slate-300">Clear</button>
+                                            </div>
+                                            <pre className="font-mono text-sm text-emerald-400 whitespace-pre-wrap">{output}</pre>
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
+                        </div>
+                    )}
+
+                    {/* Tab Content: Visualizer */}
+                    {activeTab === 'visualizer' && (
+                        <div className="space-y-6">
+                            <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 shadow-sm border border-slate-200 dark:border-slate-800">
+                                <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">
+                                    Visual Destructuring & Spread
+                                </h2>
+
+                                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                                    <div>
+                                        <h3 className="text-lg font-semibold text-slate-700 dark:text-slate-300 mb-4">
+                                            Interactive Examples
+                                        </h3>
+                                        <div className="space-y-4">
+                                            <div className="p-4 bg-slate-50 dark:bg-slate-800 rounded-lg">
+                                                <h4 className="font-medium mb-2">Array Destructuring</h4>
+                                                <div className="flex items-center justify-between mb-2">
+                                                    <code className="text-sm bg-slate-200 dark:bg-slate-700 px-2 py-1 rounded">const [a, b] = [1, 2]</code>
+                                                    <button className="text-xs text-blue-600 hover:underline">Visualize</button>
+                                                </div>
+                                                <div className="flex items-center gap-2">
+                                                    <div className="p-2 bg-blue-100 dark:bg-blue-900/30 rounded">[1, 2]</div>
+                                                    <ArrowRightLeft className="w-4 h-4 text-slate-400" />
+                                                    <div className="flex gap-2">
+                                                        <div className="p-2 bg-green-100 dark:bg-green-900/30 rounded">a = 1</div>
+                                                        <div className="p-2 bg-green-100 dark:bg-green-900/30 rounded">b = 2</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div className="p-4 bg-slate-50 dark:bg-slate-800 rounded-lg">
+                                                <h4 className="font-medium mb-2">Object Spread</h4>
+                                                <div className="flex items-center justify-between mb-2">
+                                                    <code className="text-sm bg-slate-200 dark:bg-slate-700 px-2 py-1 rounded">const merged = {...obj1, ...obj2}</code>
+                                                    <button className="text-xs text-blue-600 hover:underline">Visualize</button>
+                                                </div>
+                                                <div className="flex flex-col gap-2">
+                                                    <div className="flex items-center gap-2">
+                                                        <div className="p-2 bg-blue-100 dark:bg-blue-900/30 rounded">obj1: {"{a:1}"}</div>
+                                                        <div className="p-2 bg-purple-100 dark:bg-purple-900/30 rounded">obj2: {"{b:2}"}</div>
+                                                    </div>
+                                                    <div className="flex justify-center">
+                                                        <Merge className="w-4 h-4 text-slate-400" />
+                                                    </div>
+                                                    <div className="p-2 bg-green-100 dark:bg-green-900/30 rounded">merged: {"{a:1, b:2}"}</div>
+                                                </div>
+                                            </div>
+
+                                            <div className="p-4 bg-slate-50 dark:bg-slate-800 rounded-lg">
+                                                <h4 className="font-medium mb-2">Rest Operator</h4>
+                                                <div className="flex items-center justify-between mb-2">
+                                                    <code className="text-sm bg-slate-200 dark:bg-slate-700 px-2 py-1 rounded">const [first, ...rest] = array</code>
+                                                    <button className="text-xs text-blue-600 hover:underline">Visualize</button>
+                                                </div>
+                                                <div className="flex items-center gap-2">
+                                                    <div className="p-2 bg-blue-100 dark:bg-blue-900/30 rounded">[1, 2, 3, 4]</div>
+                                                    <ArrowRightLeft className="w-4 h-4 text-slate-400" />
+                                                    <div className="flex gap-2">
+                                                        <div className="p-2 bg-green-100 dark:bg-green-900/30 rounded">first: 1</div>
+                                                        <div className="p-2 bg-orange-100 dark:bg-orange-900/30 rounded">rest: [2,3,4]</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <h3 className="text-lg font-semibold text-slate-700 dark:text-slate-300 mb-4">
+                                            Try Your Own Code
+                                        </h3>
+                                        <div className="bg-slate-50 dark:bg-slate-800 p-4 rounded-lg">
+                                            <textarea
+                                                value={code}
+                                                onChange={(e) => setCode(e.target.value)}
+                                                className="w-full h-40 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded p-3 font-mono text-sm mb-3"
+                                                placeholder="Enter destructuring/spread code to visualize..."
+                                            />
+                                            <div className="flex gap-2">
+                                                <button onClick={runCode} className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg">
+                                                    Visualize Code
+                                                </button>
+                                                <button onClick={resetCode} className="px-4 py-2 border border-slate-300 dark:border-slate-700 rounded-lg">
+                                                    Reset
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <div className="mt-6 p-4 bg-slate-50 dark:bg-slate-800 rounded-lg">
+                                            <h4 className="font-medium mb-3">Visual Representation</h4>
+                                            {output && (
+                                                <div className="p-3 bg-white dark:bg-slate-900 rounded border border-slate-300 dark:border-slate-700">
+                                                    <div className="text-sm font-mono text-emerald-600 dark:text-emerald-400">
+                                                        Output: {output.split('\n')[0]}
+                                                    </div>
+                                                </div>
+                                            )}
+                                            <div className="mt-3 text-sm text-slate-600 dark:text-slate-400">
+                                                <p><strong>How it works:</strong></p>
+                                                <ul className="mt-2 space-y-1">
+                                                    <li>• Destructuring extracts values from right side to left side</li>
+                                                    <li>• Spread (...) expands elements from source</li>
+                                                    <li>• Rest (...) collects remaining elements</li>
+                                                    <li>• Default values provide fallbacks for undefined</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="mt-8 p-4 bg-blue-50 dark:bg-blue-900/10 rounded-lg border border-blue-100 dark:border-blue-900/30">
+                                    <h4 className="font-medium text-blue-700 dark:text-blue-300 mb-2">Key Rules to Remember</h4>
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+                                        <div className="p-2 bg-white dark:bg-slate-800 rounded">
+                                            <strong>Destructuring:</strong> Right side → Left side
+                                        </div>
+                                        <div className="p-2 bg-white dark:bg-slate-800 rounded">
+                                            <strong>Spread:</strong> Expands iterables in place
+                                        </div>
+                                        <div className="p-2 bg-white dark:bg-slate-800 rounded">
+                                            <strong>Rest:</strong> Always last in pattern
+                                        </div>
+                                        <div className="p-2 bg-white dark:bg-slate-800 rounded">
+                                            <strong>Defaults:</strong> Only used if value is undefined
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+
+                    {/* Footer Nav */}
+                    <div className="mt-12 pt-8 border-t border-slate-200 dark:border-slate-800 flex justify-between items-center">
+                        <a href="/lesson9" className="flex items-center gap-2 text-slate-500 hover:text-slate-900 dark:hover:text-white transition-colors">
+                            <ChevronLeft className="w-4 h-4" />
+                            <span className="font-medium">Advanced Functions</span>
+                        </a>
+                        <a href="/lesson11" className="flex items-center gap-2 text-slate-500 hover:text-slate-900 dark:hover:text-white transition-colors">
+                            <span className="font-medium">Modules & Import/Export</span>
+                            <ChevronRight className="w-4 h-4" />
+                        </a>
+                    </div>
+
+                </div>
+            </main>
+        </div>
+    );
+}
