@@ -4,11 +4,11 @@ import {
     ChevronRight, Copy, RotateCcw, Box,
     Hash, Filter, RefreshCw, ChevronLeft,
     Search, SortAsc, Trash2, Plus, Minus, Layers, BarChart,
-    ArrowUpDown, Split, Merge, BookOpen, Brain,
+    ArrowUpDown, Merge, BookOpen, Brain,
     Folder, Lock, Unlock, Link, Shield, Database,
     Zap, Eye, EyeOff, Wrench, Settings, GitBranch,
     Cog, Package, Users, Globe, Target, Layers2,
-    Unfold, Combine, SplitSquare, Boxes, PackageOpen,
+    Unfold, Combine, Split, Boxes, PackageOpen,
     ScatterChart, Braces, ArrowRightLeft, GitMerge,
     GitPullRequest, Workflow, Palette, Map
 } from 'lucide-react';
@@ -749,7 +749,7 @@ console.log('State with toggled theme:', newState3);`,
                                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                         <div className="p-4 rounded-xl bg-blue-50 dark:bg-blue-900/10 border border-blue-100 dark:border-blue-900/30">
                                             <h3 className="font-bold text-blue-700 dark:text-blue-300 mb-2 flex items-center gap-2">
-                                                <SplitSquare className="w-4 h-4" /> Destructuring
+                                                <Split className="w-4 h-4" /> Destructuring
                                             </h3>
                                             <ul className="text-sm space-y-2 text-slate-700 dark:text-slate-300">
                                                 <li className="flex items-center gap-2">
