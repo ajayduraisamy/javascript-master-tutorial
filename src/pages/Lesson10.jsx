@@ -809,7 +809,10 @@ console.log('State with toggled theme:', newState3);`,
                                                     <td className="py-3 font-mono text-xs">Extract first two elements</td>
                                                 </tr>
                                                 <tr className="border-b border-slate-100 dark:border-slate-800">
-                                                    <td className="py-3 font-mono text-green-500">const {x, y} = obj</td>
+                                                    <td className="py-3 font-mono">
+                                                        {"const {x, y} = obj"}
+                                                    </td>
+
                                                     <td className="py-3">Object destructuring</td>
                                                     <td className="py-3 font-mono text-xs">Extract properties x and y</td>
                                                 </tr>
