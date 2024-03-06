@@ -126,7 +126,7 @@ console.log('Sum:', sum(1, 2, 3, 4, 5));`);
         }
     };
 
-    // DESTRUCTURING & SPREAD CONCEPTS
+    
     const concepts = [
         {
             category: "Array Destructuring",
@@ -648,7 +648,7 @@ console.log('State with toggled theme:', newState3);`,
     };
 
     const updateVisualization = (type, example) => {
-        // This would update visualization based on selected example
+        
         console.log('Update visualization:', type, example);
     };
 
@@ -707,7 +707,7 @@ console.log('State with toggled theme:', newState3);`,
                         </div>
                     </div>
 
-                    {/* Tabs */}
+                
                     <div className="mb-8 border-b border-slate-200 dark:border-slate-800">
                         <div className="flex overflow-x-auto gap-6 pb-px scrollbar-hide">
                             {['content', 'concepts', 'exercises', 'playground', 'visualizer'].map((tab) => (
@@ -728,10 +728,10 @@ console.log('State with toggled theme:', newState3);`,
                         </div>
                     </div>
 
-                    {/* Tab Content: Content */}
+                
                     {activeTab === 'content' && (
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
-                            {/* Left Column: Theory */}
+                    
                             <div className="space-y-6">
                                 <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200 dark:border-slate-800">
                                     <div className="flex items-center gap-3 mb-4">
