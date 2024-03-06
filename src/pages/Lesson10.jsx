@@ -8,7 +8,7 @@ import {
     Folder, Lock, Unlock, Link, Shield, Database,
     Zap, Eye, EyeOff, Wrench, Settings, GitBranch,
     Cog, Package, Users, Globe, Target, Layers2,
-    Unfold, Combine, Split, Boxes, PackageOpen,
+    Expand, Combine, Split, Boxes, PackageOpen,
     ScatterChart, Braces, ArrowRightLeft, GitMerge,
     GitPullRequest, Workflow, Palette, Map
 } from 'lucide-react';
@@ -160,7 +160,7 @@ console.log('Sum:', sum(1, 2, 3, 4, 5));`);
                 },
                 {
                     name: "Rest Pattern",
-                    icon: <Unfold className="w-4 h-4 text-orange-500" />,
+                    icon: <Expand className="w-4 h-4 text-orange-500" />,
                     description: "Collect remaining elements into new array",
                     syntax: "const [first, ...rest] = array;",
                     example: "const [head, ...tail] = [1,2,3,4];",
