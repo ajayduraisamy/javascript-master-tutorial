@@ -667,7 +667,7 @@ setTimeout(() => searchHandler.handleInput('javascript'), 200);`,
                     
                     {activeTab === 'content' && (
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
-                            {/* Left Column: Theory */}
+                            
                             <div className="space-y-6">
                                 <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200 dark:border-slate-800">
                                     <div className="flex items-center gap-3 mb-4">
@@ -761,7 +761,7 @@ setTimeout(() => searchHandler.handleInput('javascript'), 200);`,
                                 </div>
                             </div>
 
-                            {/* Right Column: Code Editor */}
+                            
                             <div className="lg:sticky lg:top-6 space-y-6">
                                 <div className="bg-slate-900 rounded-2xl overflow-hidden shadow-xl ring-1 ring-slate-800">
                                     <div className="flex justify-between items-center bg-slate-950/50 px-4 py-3 border-b border-slate-800">
