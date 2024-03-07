@@ -643,7 +643,7 @@ setTimeout(() => searchHandler.handleInput('javascript'), 200);`,
                         </div>
                     </div>
 
-                    {/* Tabs */}
+                
                     <div className="mb-8 border-b border-slate-200 dark:border-slate-800">
                         <div className="flex overflow-x-auto gap-6 pb-px scrollbar-hide">
                             {['content', 'concepts', 'exercises', 'playground'].map((tab) => (
@@ -664,7 +664,7 @@ setTimeout(() => searchHandler.handleInput('javascript'), 200);`,
                         </div>
                     </div>
 
-                    {/* Tab Content: Content */}
+                    
                     {activeTab === 'content' && (
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
                             {/* Left Column: Theory */}
