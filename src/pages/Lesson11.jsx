@@ -802,7 +802,7 @@ setTimeout(() => searchHandler.handleInput('javascript'), 200);`,
                         </div>
                     )}
 
-                    {/* Tab Content: Concepts */}
+                
                     {activeTab === 'concepts' && (
                         <div className="space-y-6">
                             <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 shadow-sm border border-slate-200 dark:border-slate-800">
