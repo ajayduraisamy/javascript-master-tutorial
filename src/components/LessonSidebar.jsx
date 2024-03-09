@@ -35,12 +35,12 @@ const lessons = [
     { id: 'lesson19', title: 'Closures', icon: Eye, module: 'advanced', completed: false },
     { id: 'lesson20', title: 'Design Patterns', icon: Brain, module: 'advanced', completed: false },
 
-    // Module 4: Web APIs
+    
     { id: 'lesson21', title: 'DOM Manipulation', icon: Folder, module: 'web', completed: false },
     { id: 'lesson22', title: 'Events', icon: Zap, module: 'web', completed: false },
     { id: 'lesson23', title: 'Browser Storage', icon: Lock, module: 'web', completed: false },
 
-    // Projects
+    
     { id: 'project1', title: 'To-Do App Project', icon: Award, module: 'projects', completed: false },
     { id: 'project2', title: 'Weather App Project', icon: Cloud, module: 'projects', completed: false },
     { id: 'project3', title: 'E-commerce Cart', icon: ShoppingCart, module: 'projects', completed: false },
