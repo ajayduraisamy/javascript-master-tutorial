@@ -14,7 +14,7 @@ const lessons = [
     { id: 'lesson2', title: 'Operators & Expressions', icon: Code, module: 'fundamentals', completed: false },
     { id: 'lesson3', title: 'Control Flow', icon: Repeat, module: 'fundamentals', completed: false },
     { id: 'lesson4', title: 'Loops', icon: Repeat, module: 'fundamentals', completed: false },
-    { id: 'lesson5', title: 'Functions Basics', icon: Code, module: 'fundamentals', completed: false }, 
+    { id: 'lesson5', title: 'Functions Basics', icon: Code, module: 'fundamentals', completed: false },
     { id: 'lesson6', title: 'Scope & Hoisting', icon: Box, module: 'fundamentals', completed: false },
     { id: 'lesson7', title: 'Arrays', icon: Database, module: 'fundamentals', completed: false },
 
@@ -56,9 +56,13 @@ export default function LessonSidebar({ currentLesson }) {
         projects: 'Real Projects'
     };
 
+    const completedCount = lessons.filter(l => l.completed).length;
+    const progressPct = (completedCount / lessons.length) * 100;
+
     return (
         <aside className="fixed left-0 top-0 h-screen w-80 border-r border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl z-40 hidden lg:block overflow-y-auto mt-18">
             <div className="p-6">
+
                 {/* Logo */}
                 <div className="flex items-center gap-3 mb-10">
                     <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center shadow-lg">
@@ -66,28 +70,41 @@ export default function LessonSidebar({ currentLesson }) {
                     </div>
                     <div>
                         <h2 className="font-bold text-xl">JavaScript Master</h2>
-                        <p className="text-xs text-slate-500 dark:text-slate-400">Complete 23-Lesson Course</p>
+                        <p className="text-xs text-slate-500 dark:text-slate-400">
+                            Complete {lessons.length}-Lesson Course
+                        </p>
                     </div>
                 </div>
 
                 {/* Progress */}
                 <div className="mb-8 p-4 rounded-xl bg-gradient-to-r from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800">
                     <div className="flex justify-between text-sm mb-2">
-                        <span className="text-slate-600 dark:text-slate-400">Course Progress</span>
-                        <span className="font-bold text-yellow-600 dark:text-yellow-400">1/23</span>
+                        <span className="text-slate-600 dark:text-slate-400">
+                            Course Progress
+                        </span>
+                        <span className="font-bold text-yellow-600 dark:text-yellow-400">
+                            {completedCount}/{lessons.length}
+                        </span>
                     </div>
+
                     <div className="h-2 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
-                        <div className="h-full w-1/23 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full"></div>
+                        <div
+                            className="h-full bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full transition-all"
+                            style={{ width: `${progressPct}%` }}
+                        />
                     </div>
+
                     <p className="text-xs text-slate-500 dark:text-slate-400 mt-2">
-                        Estimated completion: 40-50 hours
+                        Estimated completion: 40–50 hours
                     </p>
                 </div>
 
                 {/* Lessons List */}
                 <nav className="space-y-1">
                     {Object.entries(modules).map(([moduleKey, moduleTitle]) => {
-                        const moduleLessons = lessons.filter(lesson => lesson.module === moduleKey);
+                        const moduleLessons = lessons.filter(
+                            lesson => lesson.module === moduleKey
+                        );
 
                         return (
                             <div key={moduleKey} className="mb-6">
@@ -100,40 +117,47 @@ export default function LessonSidebar({ currentLesson }) {
                                         <Link
                                             key={lesson.id}
                                             to={`/${lesson.id}`}
-                                            className={`flex items-center gap-3 p-3 rounded-xl transition-all duration-300 group ${currentLesson === lesson.id
+                                            className={`flex items-center gap-3 p-3 rounded-xl transition-all duration-300 group
+                                                ${currentLesson === lesson.id
                                                     ? 'bg-gradient-to-r from-yellow-50 to-orange-50 dark:from-yellow-900/20 dark:to-orange-900/20 border border-yellow-200 dark:border-yellow-800'
                                                     : 'hover:bg-slate-100 dark:hover:bg-slate-900'
                                                 }`}
                                         >
                                             {/* Lesson Number */}
-                                            <div className={`w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold ${lesson.completed
+                                            <div className={`w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold
+                                                ${lesson.completed
                                                     ? 'bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400'
                                                     : currentLesson === lesson.id
                                                         ? 'bg-gradient-to-r from-yellow-500 to-orange-600 text-white'
                                                         : 'bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400'
-                                                }`}>
-                                                {lessons.findIndex(l => l.id === lesson.id)}
+                                                }`}
+                                            >
+                                                {lessons.findIndex(l => l.id === lesson.id) + 1}
                                             </div>
 
                                             {/* Lesson Info */}
                                             <div className="flex-1 min-w-0">
                                                 <div className="flex items-center gap-2">
                                                     <lesson.icon className="w-4 h-4 text-slate-400 dark:text-slate-500" />
-                                                    <span className={`font-medium truncate ${currentLesson === lesson.id
+
+                                                    <span className={`font-medium truncate
+                                                        ${currentLesson === lesson.id
                                                             ? 'text-yellow-700 dark:text-yellow-300'
                                                             : 'text-slate-700 dark:text-slate-300'
-                                                        }`}>
+                                                        }`}
+                                                    >
                                                         {lesson.title}
                                                     </span>
                                                 </div>
 
-                                                {/* Status indicator */}
                                                 {lesson.module === 'projects' && (
-                                                    <span className="text-xs text-blue-500 dark:text-blue-400">Project</span>
+                                                    <span className="text-xs text-blue-500 dark:text-blue-400">
+                                                        Project
+                                                    </span>
                                                 )}
                                             </div>
 
-                                            {/* Completion Check */}
+                                            {/* Completion Indicator */}
                                             {lesson.completed ? (
                                                 <div className="w-3 h-3 rounded-full bg-green-500"></div>
                                             ) : (
@@ -150,22 +174,42 @@ export default function LessonSidebar({ currentLesson }) {
                 {/* Stats */}
                 <div className="mt-12 pt-8 border-t border-slate-200 dark:border-slate-800 grid grid-cols-2 gap-4">
                     <div className="text-center">
-                        <div className="text-2xl font-bold text-yellow-600 dark:text-yellow-400">23</div>
-                        <div className="text-xs text-slate-500 dark:text-slate-400">Lessons</div>
+                        <div className="text-2xl font-bold text-yellow-600 dark:text-yellow-400">
+                            {lessons.length}
+                        </div>
+                        <div className="text-xs text-slate-500 dark:text-slate-400">
+                            Lessons
+                        </div>
                     </div>
+
                     <div className="text-center">
-                        <div className="text-2xl font-bold text-orange-600 dark:text-orange-400">4</div>
-                        <div className="text-xs text-slate-500 dark:text-slate-400">Projects</div>
+                        <div className="text-2xl font-bold text-orange-600 dark:text-orange-400">
+                            {lessons.filter(l => l.module === 'projects').length}
+                        </div>
+                        <div className="text-xs text-slate-500 dark:text-slate-400">
+                            Projects
+                        </div>
                     </div>
+
                     <div className="text-center">
-                        <div className="text-2xl font-bold text-green-600 dark:text-green-400">50+</div>
-                        <div className="text-xs text-slate-500 dark:text-slate-400">Exercises</div>
+                        <div className="text-2xl font-bold text-green-600 dark:text-green-400">
+                            50+
+                        </div>
+                        <div className="text-xs text-slate-500 dark:text-slate-400">
+                            Exercises
+                        </div>
                     </div>
+
                     <div className="text-center">
-                        <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">∞</div>
-                        <div className="text-xs text-slate-500 dark:text-slate-400">Practice</div>
+                        <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">
+                            &infin;
+                        </div>
+                        <div className="text-xs text-slate-500 dark:text-slate-400">
+                            Practice
+                        </div>
                     </div>
                 </div>
+
             </div>
         </aside>
     );
