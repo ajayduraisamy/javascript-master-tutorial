@@ -8,7 +8,7 @@ import {
 import { Link } from 'react-router-dom';
 
 const lessons = [
-    // Module 1: Fundamentals
+    
     { id: 'intro', title: 'Introduction', icon: Home, module: 'start', completed: true },
     { id: 'lesson1', title: 'Variables & Data Types', icon: Book, module: 'fundamentals', completed: false },
     { id: 'lesson2', title: 'Operators & Expressions', icon: Code, module: 'fundamentals', completed: false },
@@ -18,7 +18,7 @@ const lessons = [
     { id: 'lesson6', title: 'Scope & Hoisting', icon: Box, module: 'fundamentals', completed: false },
     { id: 'lesson7', title: 'Arrays', icon: Database, module: 'fundamentals', completed: false },
 
-    // Module 2: Intermediate
+
     { id: 'lesson8', title: 'Objects & Prototypes', icon: Cpu, module: 'intermediate', completed: false },
     { id: 'lesson9', title: 'ES6+ Modern Features', icon: Zap, module: 'intermediate', completed: false },
     { id: 'lesson10', title: 'Destructuring & Spread', icon: Grid, module: 'intermediate', completed: false },
@@ -27,7 +27,7 @@ const lessons = [
     { id: 'lesson13', title: 'Dates & Math', icon: Calendar, module: 'intermediate', completed: false },
     { id: 'lesson14', title: 'Regular Expressions', icon: Type, module: 'intermediate', completed: false },
 
-    // Module 3: Advanced
+    
     { id: 'lesson15', title: 'Asynchronous JS', icon: Clock, module: 'advanced', completed: false },
     { id: 'lesson16', title: 'Async/Await', icon: Layers, module: 'advanced', completed: false },
     { id: 'lesson17', title: 'ES6 Modules', icon: Package, module: 'advanced', completed: false },
