@@ -63,7 +63,7 @@ export default function LessonSidebar({ currentLesson }) {
         <aside className="fixed left-0 top-0 h-screen w-80 border-r border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl z-40 hidden lg:block overflow-y-auto mt-18">
             <div className="p-6">
 
-                {/* Logo */}
+                
                 <div className="flex items-center gap-3 mb-10">
                     <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center shadow-lg">
                         <Code className="w-6 h-6 text-white" />
