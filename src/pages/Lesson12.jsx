@@ -179,7 +179,7 @@ function divideSafely(a, b) {
             };
 
             try {
-                // eslint-disable-next-line no-eval
+            
                 eval(code);
             } catch (e) {
                 console.log("Runtime Error:", e.message);
@@ -192,7 +192,7 @@ function divideSafely(a, b) {
         }
     };
 
-    // ERROR HANDLING CONCEPTS
+
     const concepts = [
         {
             category: "Basic Error Handling",
