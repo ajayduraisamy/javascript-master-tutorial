@@ -9,8 +9,8 @@ import {
     Workflow, Palette, Target, Puzzle, Map,
     AlertTriangle, Bug, XCircle, CheckCircle,
     Activity, LifeBuoy, AlertOctagon, Bell,
-    Lock, Unlock, AlertHexagon, FileWarning,
-    Feather, Anchor, ShieldCheck, AlertSquare
+     FileWarning,
+    Feather, Anchor, ShieldCheck 
 } from 'lucide-react';
 import LessonSidebar from '../components/LessonSidebar';
 
@@ -260,7 +260,7 @@ function divideSafely(a, b) {
                 },
                 {
                     name: "RangeError",
-                    icon: <AlertHexagon className="w-4 h-4 text-pink-500" />,
+                    icon: <AlertTriangle className="w-4 h-4 text-pink-500" />,
                     description: "When number is outside allowed range",
                     syntax: "new Array(-1); // RangeError",
                     example: "num.toFixed(101); // 0-100 range",
@@ -363,7 +363,7 @@ function divideSafely(a, b) {
                 },
                 {
                     name: "Graceful Degradation",
-                    icon: <AlertSquare className="w-4 h-4 text-green-700" />,
+                    icon: <AlertTriangle className="w-4 h-4 text-green-700" />,
                     description: "Provide fallback when feature fails",
                     syntax: "try { feature(); } catch { fallback(); }",
                     example: "try { localStorage } catch { useCookies(); }",
