@@ -10,7 +10,7 @@ import {
     Clock, CalendarDays, Timer, Clock4,
     TrendingUp, PieChart, Sigma, Percent,
     DollarSign, Hash as HashIcon, Divide,
-    Square, Cube, Target as TargetIcon,
+    Square, Target as TargetIcon,
     ChartBar, ChartLine, ChartArea,
     Infinity as InfinityIcon, Pi,
     Globe, Sun, Moon, Watch
@@ -387,7 +387,7 @@ console.log('Random password:', generatePassword());`);
             concepts: [
                 {
                     name: "Exponents & Roots",
-                    icon: <Cube className="w-4 h-4 text-blue-700" />,
+                    icon: <Box className="w-4 h-4 text-blue-700" />,
                     description: "Power and root calculations",
                     syntax: "Math.pow(base, exp), Math.sqrt(x), Math.cbrt(x)",
                     example: "Math.pow(2, 3); // 8, Math.sqrt(16); // 4",
