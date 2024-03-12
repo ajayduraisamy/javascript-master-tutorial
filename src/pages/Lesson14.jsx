@@ -733,7 +733,7 @@ function processText(text) {
     // 3. Extract and format code blocks
     const codeBlocks = [];
     processed = processed.replace(
-        /```([\\s\\S] *?)```/g,
+        
         (match, code) => {
             codeBlocks.push(code.trim());
             return \`<pre><code>\${code.trim()}</code></pre>\`;
