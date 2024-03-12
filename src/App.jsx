@@ -18,6 +18,7 @@ import Lesson10 from "./pages/Lesson10";
 import Lesson11 from "./pages/Lesson11";
 import Lesson12 from "./pages/Lesson12";
 import Lesson13 from "./pages/Lesson13";
+import Lesson14 from "./pages/Lesson14";
 // Import all other lessons similarly...
 
 
