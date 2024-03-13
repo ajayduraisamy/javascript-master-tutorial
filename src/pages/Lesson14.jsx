@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {
-    Type, Code, Play, Terminal, Lightbulb,
-    ChevronRight, Copy, RotateCcw, Filter,
+    Type, Code, Play, Terminal, Lightbulb, Plus,
+    ChevronRight, Copy, RotateCcw, Filter, HelpCircle,
     Hash, Search, RefreshCw, ChevronLeft,
     Layers, BarChart, Split, Merge, BookOpen, Brain,
     Box, Zap, Cpu, FunctionSquare, GitBranch,
@@ -397,7 +397,7 @@ console.log('Password check:', checkPasswordComplexity('Pass123!'));`);
                 },
                 {
                     name: "Zero or One",
-                    icon: <QuestionMark className="w-4 h-4 text-blue-600" />,
+                    icon: <HelpCircle className="w-4 h-4 text-blue-600" />,
                     description: "Match zero or one occurrence",
                     syntax: "?",
                     example: "/\\d?/ matches 0 or 1 digit",
