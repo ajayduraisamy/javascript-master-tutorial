@@ -306,7 +306,7 @@ fetchWithErrorHandling().then(console.log);
             };
 
 
-            // Simulate async execution visualization
+            
             setAsyncState({
                 isRunning: true,
                 currentStep: 0,
@@ -339,7 +339,7 @@ fetchWithErrorHandling().then(console.log);
             }, 500);
 
             try {
-                // eslint-disable-next-line no-eval
+            
                 eval(code);
             } catch (e) {
                 console.log("Runtime Error:", e.message);
