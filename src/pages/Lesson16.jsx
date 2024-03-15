@@ -303,7 +303,8 @@ fetchWithErrorHandling().then(console.log);
             console.error = (...args) => {
                 logs.push(`[ERROR] ${args.join(' ')}`);
                 originalError(...args);
-            });
+            };
+
 
             // Simulate async execution visualization
             setAsyncState({
