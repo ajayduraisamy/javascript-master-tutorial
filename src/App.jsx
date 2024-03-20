@@ -59,6 +59,7 @@ export default function App() {
         <Route path="/lesson16" element={<Lesson16 />} />
         <Route path="/lesson17" element={<Lesson17 />} />
         <Route path="/lesson18" element={<Lesson18 />} />
+        <Route path="/lesson19" element={<Lesson19 />} />
 
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
