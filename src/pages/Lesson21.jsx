@@ -7,7 +7,7 @@ import {
     ChevronLeft, Eye, EyeOff, RefreshCw, Maximize2, Minimize2,
     Edit, Trash2, Plus, Search, Grid, List, Filter, Layout,
     MousePointer, Pointer, Move, ZapOff, Clock, BatteryCharging,
-    Wifi, Cursor, Compass, BoxSelect, Type, Bold, Italic
+    Wifi, Compass, BoxSelect, Type, Bold, Italic
 } from 'lucide-react';
 
 export default function Lesson21() {
@@ -369,7 +369,7 @@ el.offsetHeight;          // Height + padding + border`}
             <div className="space-y-6">
                 <div className="bg-gradient-to-r from-red-50 to-pink-50 dark:from-red-900/10 dark:to-pink-900/10 p-6 rounded-2xl border border-red-200 dark:border-red-800">
                     <h3 className="text-xl font-bold mb-3 flex items-center gap-2">
-                        <Cursor className="w-5 h-5 text-red-600 dark:text-red-400" />
+                        <MousePointer className="w-5 h-5 text-red-600 dark:text-red-400" />
                         Interactive DOM Playground
                     </h3>
                     <p className="text-slate-700 dark:text-slate-300 mb-4">
@@ -509,7 +509,7 @@ el.offsetHeight;          // Height + padding + border`}
                                 >
                                     {tab === 'theory' && <BookOpen className="w-4 h-4" />}
                                     {tab === 'code' && <Code className="w-4 h-4" />}
-                                    {tab === 'practice' && <Cursor className="w-4 h-4" />}
+                                    {tab === 'practice' && <MousePointer className="w-4 h-4" />}
                                     {tab.charAt(0).toUpperCase() + tab.slice(1)}
                                 </button>
                             ))}
