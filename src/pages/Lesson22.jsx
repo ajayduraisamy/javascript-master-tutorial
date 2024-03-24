@@ -6,7 +6,7 @@ import {
     Info, Sparkles, Award, Key, Lock, Unlock, ChevronRight,
     ChevronLeft, Eye, EyeOff, RefreshCw, Maximize2, Minimize2,
     MousePointer, Pointer, Move, Clock, BatteryCharging,
-    Wifi, Cursor, Compass, BoxSelect, Type, Bold, Italic,
+    Wifi, Compass, BoxSelect, Type, Bold, Italic,
     Volume2, VolumeX, Mic, MicOff, Upload, Download,
     Maximize, Minimize, RotateCcw, Search, Filter
 } from 'lucide-react';
@@ -366,7 +366,7 @@ document.addEventListener('keydown', (event) => {
         },
         {
             name: 'mouseover',
-            icon: Cursor,
+            icon: MousePointer,
             color: 'text-indigo-500',
             bg: 'bg-indigo-500/10',
             border: 'border-indigo-500/20',
@@ -662,7 +662,7 @@ element.addEventListener('touchstart', handler, { passive: true });`}
                                         bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm 
                                         p-5 rounded-2xl border ${event.border}
                                         hover:scale-[1.02] hover:shadow-2xl hover:shadow-${event.color.split('text-')[1]}/10
-                                        transition-all duration-300 group cursor-pointer
+                                        transition-all duration-300 group MousePointer-pointer
                                         animate-in fade-in slide-in-from-bottom-4
                                     `}
                                     style={{ animationDelay: `${index * 100}ms` }}
