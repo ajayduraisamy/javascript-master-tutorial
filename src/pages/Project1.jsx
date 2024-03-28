@@ -7,7 +7,8 @@ import {
     Calendar, Clock, Filter, List, CheckSquare, Square,
     Star, StarOff, Archive, RefreshCw, Settings, User,
     Bell, BellOff, TrendingUp, BarChart, Zap, BatteryCharging,
-    Wifi, Smartphone, Monitor, Cloud, Save, Download, Upload
+    Wifi, Smartphone, Monitor, Cloud, Save, Download, Upload, ChevronLeft, ChevronRight
+
 } from 'lucide-react';
 
 export default function Project1() {
