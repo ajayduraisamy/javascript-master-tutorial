@@ -27,7 +27,7 @@ import Lesson19 from "./pages/Lesson19";
 import Lesson20 from "./pages/Lesson20";
 import Lesson21 from "./pages/Lesson21";
 import Lesson22 from "./pages/Lesson22";
-// import Lesson23 from "./pages/Lesson23";
+import Lesson23 from "./pages/Lesson23";
 // Import all other lessons similarly...
 
 
@@ -67,7 +67,7 @@ export default function App() {
         <Route path="/lesson20" element={<Lesson20 />} />
         <Route path="/lesson21" element={<Lesson21 />} />
         <Route path="/lesson22" element={<Lesson22 />} />
-        {/* <Route path="/lesson23" element={<Lesson23 />} /> */}
+        <Route path="/lesson23" element={<Lesson23 />} />
 
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
