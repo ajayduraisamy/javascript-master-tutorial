@@ -17,7 +17,7 @@ export default function Lesson23() {
     const [showSolution, setShowSolution] = useState(false);
     const [userCode, setUserCode] = useState('');
     const [practiceOutput, setPracticeOutput] = useState('');
-    const [activeTab, setActiveTab] = useState('theory'); // 'theory', 'code', 'practice'
+    const [activeTab, setActiveTab] = useState('theory'); 
     const [isExpanded, setIsExpanded] = useState(false);
     const [typingEffect, setTypingEffect] = useState('');
     const [pulseAnimation, setPulseAnimation] = useState(false);
@@ -38,7 +38,7 @@ export default function Lesson23() {
         return () => clearInterval(typing);
     }, []);
 
-    // Load storage data on mount
+
     useEffect(() => {
         loadStorageData();
     }, [storageType]);
@@ -78,7 +78,7 @@ export default function Lesson23() {
         setStorageData(data);
     };
 
-    // Solution Code
+    
     const solutionCode = `// Complete Browser Storage Example
 class StorageManager {
     constructor(storage = localStorage) {
@@ -522,16 +522,16 @@ console.log('Current theme:', theme); // 'dark'`
                     <div className="bg-slate-900 p-4 rounded-lg">
                         <code className="text-red-400 text-sm">
                             // NEVER store sensitive data in browser storage:<br />
-                            ❌ Passwords, API keys, tokens<br />
-                            ❌ Credit card information<br />
-                            ❌ Personal identification data<br />
-                            ❌ Encryption keys<br /><br />
+                             Passwords, API keys, tokens<br />
+                             Credit card information<br />
+                             Personal identification data<br />
+                             Encryption keys<br /><br />
                             // Safe to store:<br />
-                            ✅ User preferences (theme, language)<br />
-                            ✅ Non-sensitive app state<br />
-                            ✅ Cached API responses<br />
-                            ✅ Shopping cart items (temporary)<br />
-                            ✅ Game progress/scores
+                             User preferences (theme, language)<br />
+                             Non-sensitive app state<br />
+                             Cached API responses<br />
+                             Shopping cart items (temporary)<br />
+                             Game progress/scores
                         </code>
                     </div>
                 </div>
