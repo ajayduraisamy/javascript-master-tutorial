@@ -105,7 +105,7 @@ function LandingPage() {
             <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
           </span>
           <span className="text-xs font-semibold tracking-wide uppercase text-slate-500 dark:text-slate-400">
-            Updated for ES2025
+            ES2025
           </span>
         </div>
 
