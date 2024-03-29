@@ -29,6 +29,7 @@ import Lesson21 from "./pages/Lesson21";
 import Lesson22 from "./pages/Lesson22";
 import Lesson23 from "./pages/Lesson23";
 import Project1 from "./pages/Project1";
+import Project2 from "./pages/Project2";
 // Import all other lessons similarly...
 
 
