@@ -7,7 +7,7 @@ import {
     Moon, Sunrise, Sunset, Compass, MapPin, Navigation, Zap,
     Clock, Calendar, RefreshCw, Settings, Download, Upload,
     Search, Filter, Eye, EyeOff, Shield, BatteryCharging,
-    Wifi, Smartphone, Monitor, Globe, Database, Server
+    Wifi, Smartphone, Monitor, Globe, Database, Server, CheckCircle, Star, ChevronLeft, ChevronRight
 } from 'lucide-react';
 
 export default function Project2() {
