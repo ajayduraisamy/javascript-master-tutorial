@@ -1,0 +1,97 @@
+﻿# Daily Lessons Index
+
+Total lessons: 92 (August 1, 2024 to October 31, 2024)
+
+## Files
+- Day 1 ($fileName) - Setup and tsconfig
+- Day 2 ($fileName) - Union types
+- Day 3 ($fileName) - Enums and const objects
+- Day 4 ($fileName) - React props typing
+- Day 5 ($fileName) - Arrays and tuples
+- Day 6 ($fileName) - Object types
+- Day 7 ($fileName) - Generic interfaces
+- Day 8 ($fileName) - Modules and exports
+- Day 9 ($fileName) - Functions with types
+- Day 10 ($fileName) - Optional and readonly
+- Day 11 ($fileName) - Generics basics
+- Day 12 ($fileName) - Fetch typing
+- Day 13 ($fileName) - Type inference
+- Day 14 ($fileName) - Type aliases and interfaces
+- Day 15 ($fileName) - Utility types
+- Day 16 ($fileName) - Async and Promise types
+- Day 17 ($fileName) - Primitive types
+- Day 18 ($fileName) - Literal types
+- Day 19 ($fileName) - Type guards
+- Day 20 ($fileName) - Mini project day
+- Day 21 ($fileName) - Setup and tsconfig
+- Day 22 ($fileName) - Union types
+- Day 23 ($fileName) - Enums and const objects
+- Day 24 ($fileName) - React props typing
+- Day 25 ($fileName) - Arrays and tuples
+- Day 26 ($fileName) - Object types
+- Day 27 ($fileName) - Generic interfaces
+- Day 28 ($fileName) - Modules and exports
+- Day 29 ($fileName) - Functions with types
+- Day 30 ($fileName) - Optional and readonly
+- Day 31 ($fileName) - Generics basics
+- Day 32 ($fileName) - Fetch typing
+- Day 33 ($fileName) - Type inference
+- Day 34 ($fileName) - Type aliases and interfaces
+- Day 35 ($fileName) - Utility types
+- Day 36 ($fileName) - Async and Promise types
+- Day 37 ($fileName) - Primitive types
+- Day 38 ($fileName) - Literal types
+- Day 39 ($fileName) - Type guards
+- Day 40 ($fileName) - Mini project day
+- Day 41 ($fileName) - Setup and tsconfig
+- Day 42 ($fileName) - Union types
+- Day 43 ($fileName) - Enums and const objects
+- Day 44 ($fileName) - React props typing
+- Day 45 ($fileName) - Arrays and tuples
+- Day 46 ($fileName) - Object types
+- Day 47 ($fileName) - Generic interfaces
+- Day 48 ($fileName) - Modules and exports
+- Day 49 ($fileName) - Functions with types
+- Day 50 ($fileName) - Optional and readonly
+- Day 51 ($fileName) - Generics basics
+- Day 52 ($fileName) - Fetch typing
+- Day 53 ($fileName) - Type inference
+- Day 54 ($fileName) - Type aliases and interfaces
+- Day 55 ($fileName) - Utility types
+- Day 56 ($fileName) - Async and Promise types
+- Day 57 ($fileName) - Primitive types
+- Day 58 ($fileName) - Literal types
+- Day 59 ($fileName) - Type guards
+- Day 60 ($fileName) - Mini project day
+- Day 61 ($fileName) - Setup and tsconfig
+- Day 62 ($fileName) - Union types
+- Day 63 ($fileName) - Enums and const objects
+- Day 64 ($fileName) - React props typing
+- Day 65 ($fileName) - Arrays and tuples
+- Day 66 ($fileName) - Object types
+- Day 67 ($fileName) - Generic interfaces
+- Day 68 ($fileName) - Modules and exports
+- Day 69 ($fileName) - Functions with types
+- Day 70 ($fileName) - Optional and readonly
+- Day 71 ($fileName) - Generics basics
+- Day 72 ($fileName) - Fetch typing
+- Day 73 ($fileName) - Type inference
+- Day 74 ($fileName) - Type aliases and interfaces
+- Day 75 ($fileName) - Utility types
+- Day 76 ($fileName) - Async and Promise types
+- Day 77 ($fileName) - Primitive types
+- Day 78 ($fileName) - Literal types
+- Day 79 ($fileName) - Type guards
+- Day 80 ($fileName) - Mini project day
+- Day 81 ($fileName) - Setup and tsconfig
+- Day 82 ($fileName) - Union types
+- Day 83 ($fileName) - Enums and const objects
+- Day 84 ($fileName) - React props typing
+- Day 85 ($fileName) - Arrays and tuples
+- Day 86 ($fileName) - Object types
+- Day 87 ($fileName) - Generic interfaces
+- Day 88 ($fileName) - Modules and exports
+- Day 89 ($fileName) - Functions with types
+- Day 90 ($fileName) - Optional and readonly
+- Day 91 ($fileName) - Generics basics
+- Day 92 ($fileName) - Fetch typing
