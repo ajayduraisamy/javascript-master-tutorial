@@ -1,97 +1,158 @@
 ﻿# Daily Lessons Index
 
-Total lessons: 92 (August 1, 2024 to October 31, 2024)
+Total lessons: 153 (August 1, 2024 to December 31, 2024)
 
 ## Files
-- Day 1 ($fileName) - Setup and tsconfig
-- Day 2 ($fileName) - Union types
-- Day 3 ($fileName) - Enums and const objects
-- Day 4 ($fileName) - React props typing
-- Day 5 ($fileName) - Arrays and tuples
-- Day 6 ($fileName) - Object types
-- Day 7 ($fileName) - Generic interfaces
-- Day 8 ($fileName) - Modules and exports
-- Day 9 ($fileName) - Functions with types
-- Day 10 ($fileName) - Optional and readonly
-- Day 11 ($fileName) - Generics basics
-- Day 12 ($fileName) - Fetch typing
-- Day 13 ($fileName) - Type inference
-- Day 14 ($fileName) - Type aliases and interfaces
-- Day 15 ($fileName) - Utility types
-- Day 16 ($fileName) - Async and Promise types
-- Day 17 ($fileName) - Primitive types
-- Day 18 ($fileName) - Literal types
-- Day 19 ($fileName) - Type guards
-- Day 20 ($fileName) - Mini project day
-- Day 21 ($fileName) - Setup and tsconfig
-- Day 22 ($fileName) - Union types
-- Day 23 ($fileName) - Enums and const objects
-- Day 24 ($fileName) - React props typing
-- Day 25 ($fileName) - Arrays and tuples
-- Day 26 ($fileName) - Object types
-- Day 27 ($fileName) - Generic interfaces
-- Day 28 ($fileName) - Modules and exports
-- Day 29 ($fileName) - Functions with types
-- Day 30 ($fileName) - Optional and readonly
-- Day 31 ($fileName) - Generics basics
-- Day 32 ($fileName) - Fetch typing
-- Day 33 ($fileName) - Type inference
-- Day 34 ($fileName) - Type aliases and interfaces
-- Day 35 ($fileName) - Utility types
-- Day 36 ($fileName) - Async and Promise types
-- Day 37 ($fileName) - Primitive types
-- Day 38 ($fileName) - Literal types
-- Day 39 ($fileName) - Type guards
-- Day 40 ($fileName) - Mini project day
-- Day 41 ($fileName) - Setup and tsconfig
-- Day 42 ($fileName) - Union types
-- Day 43 ($fileName) - Enums and const objects
-- Day 44 ($fileName) - React props typing
-- Day 45 ($fileName) - Arrays and tuples
-- Day 46 ($fileName) - Object types
-- Day 47 ($fileName) - Generic interfaces
-- Day 48 ($fileName) - Modules and exports
-- Day 49 ($fileName) - Functions with types
-- Day 50 ($fileName) - Optional and readonly
-- Day 51 ($fileName) - Generics basics
-- Day 52 ($fileName) - Fetch typing
-- Day 53 ($fileName) - Type inference
-- Day 54 ($fileName) - Type aliases and interfaces
-- Day 55 ($fileName) - Utility types
-- Day 56 ($fileName) - Async and Promise types
-- Day 57 ($fileName) - Primitive types
-- Day 58 ($fileName) - Literal types
-- Day 59 ($fileName) - Type guards
-- Day 60 ($fileName) - Mini project day
-- Day 61 ($fileName) - Setup and tsconfig
-- Day 62 ($fileName) - Union types
-- Day 63 ($fileName) - Enums and const objects
-- Day 64 ($fileName) - React props typing
-- Day 65 ($fileName) - Arrays and tuples
-- Day 66 ($fileName) - Object types
-- Day 67 ($fileName) - Generic interfaces
-- Day 68 ($fileName) - Modules and exports
-- Day 69 ($fileName) - Functions with types
-- Day 70 ($fileName) - Optional and readonly
-- Day 71 ($fileName) - Generics basics
-- Day 72 ($fileName) - Fetch typing
-- Day 73 ($fileName) - Type inference
-- Day 74 ($fileName) - Type aliases and interfaces
-- Day 75 ($fileName) - Utility types
-- Day 76 ($fileName) - Async and Promise types
-- Day 77 ($fileName) - Primitive types
-- Day 78 ($fileName) - Literal types
-- Day 79 ($fileName) - Type guards
-- Day 80 ($fileName) - Mini project day
-- Day 81 ($fileName) - Setup and tsconfig
-- Day 82 ($fileName) - Union types
-- Day 83 ($fileName) - Enums and const objects
-- Day 84 ($fileName) - React props typing
-- Day 85 ($fileName) - Arrays and tuples
-- Day 86 ($fileName) - Object types
-- Day 87 ($fileName) - Generic interfaces
-- Day 88 ($fileName) - Modules and exports
-- Day 89 ($fileName) - Functions with types
-- Day 90 ($fileName) - Optional and readonly
-- Day 91 ($fileName) - Generics basics
-- Day 92 ($fileName) - Fetch typing
+- Day 1 (Day-001.md) - Setup and tsconfig
+- Day 2 (Day-002.md) - Union types
+- Day 3 (Day-003.md) - Mapped types basics
+- Day 4 (Day-004.md) - Error handling strategy
+- Day 5 (Day-005.md) - Refactoring a feature module
+- Day 6 (Day-006.md) - Module boundaries
+- Day 7 (Day-007.md) - Primitive types
+- Day 8 (Day-008.md) - Literal types
+- Day 9 (Day-009.md) - Utility types
+- Day 10 (Day-010.md) - Reusable API helpers
+- Day 11 (Day-011.md) - Typed component props
+- Day 12 (Day-012.md) - DTO and domain types
+- Day 13 (Day-013.md) - Type inference
+- Day 14 (Day-014.md) - Type alias vs interface
+- Day 15 (Day-015.md) - Discriminated unions
+- Day 16 (Day-016.md) - Promise typing
+- Day 17 (Day-017.md) - State and hooks typing
+- Day 18 (Day-018.md) - Validation approach
+- Day 19 (Day-019.md) - Functions with return types
+- Day 20 (Day-020.md) - Optional and readonly properties
+- Day 21 (Day-021.md) - Generic functions
+- Day 22 (Day-022.md) - Async await patterns
+- Day 23 (Day-023.md) - Context typing
+- Day 24 (Day-024.md) - Testing typed functions
+- Day 25 (Day-025.md) - Arrays and tuples
+- Day 26 (Day-026.md) - Object types
+- Day 27 (Day-027.md) - Generic constraints
+- Day 28 (Day-028.md) - Fetch response models
+- Day 29 (Day-029.md) - Form event typing
+- Day 30 (Day-030.md) - Mini project increment
+- Day 31 (Day-031.md) - Setup and tsconfig
+- Day 32 (Day-032.md) - Union types
+- Day 33 (Day-033.md) - Mapped types basics
+- Day 34 (Day-034.md) - Error handling strategy
+- Day 35 (Day-035.md) - Refactoring a feature module
+- Day 36 (Day-036.md) - Module boundaries
+- Day 37 (Day-037.md) - Primitive types
+- Day 38 (Day-038.md) - Literal types
+- Day 39 (Day-039.md) - Utility types
+- Day 40 (Day-040.md) - Reusable API helpers
+- Day 41 (Day-041.md) - Typed component props
+- Day 42 (Day-042.md) - DTO and domain types
+- Day 43 (Day-043.md) - Type inference
+- Day 44 (Day-044.md) - Type alias vs interface
+- Day 45 (Day-045.md) - Discriminated unions
+- Day 46 (Day-046.md) - Promise typing
+- Day 47 (Day-047.md) - State and hooks typing
+- Day 48 (Day-048.md) - Validation approach
+- Day 49 (Day-049.md) - Functions with return types
+- Day 50 (Day-050.md) - Optional and readonly properties
+- Day 51 (Day-051.md) - Generic functions
+- Day 52 (Day-052.md) - Async await patterns
+- Day 53 (Day-053.md) - Context typing
+- Day 54 (Day-054.md) - Testing typed functions
+- Day 55 (Day-055.md) - Arrays and tuples
+- Day 56 (Day-056.md) - Object types
+- Day 57 (Day-057.md) - Generic constraints
+- Day 58 (Day-058.md) - Fetch response models
+- Day 59 (Day-059.md) - Form event typing
+- Day 60 (Day-060.md) - Mini project increment
+- Day 61 (Day-061.md) - Setup and tsconfig
+- Day 62 (Day-062.md) - Union types
+- Day 63 (Day-063.md) - Mapped types basics
+- Day 64 (Day-064.md) - Error handling strategy
+- Day 65 (Day-065.md) - Refactoring a feature module
+- Day 66 (Day-066.md) - Module boundaries
+- Day 67 (Day-067.md) - Primitive types
+- Day 68 (Day-068.md) - Literal types
+- Day 69 (Day-069.md) - Utility types
+- Day 70 (Day-070.md) - Reusable API helpers
+- Day 71 (Day-071.md) - Typed component props
+- Day 72 (Day-072.md) - DTO and domain types
+- Day 73 (Day-073.md) - Type inference
+- Day 74 (Day-074.md) - Type alias vs interface
+- Day 75 (Day-075.md) - Discriminated unions
+- Day 76 (Day-076.md) - Promise typing
+- Day 77 (Day-077.md) - State and hooks typing
+- Day 78 (Day-078.md) - Validation approach
+- Day 79 (Day-079.md) - Functions with return types
+- Day 80 (Day-080.md) - Optional and readonly properties
+- Day 81 (Day-081.md) - Generic functions
+- Day 82 (Day-082.md) - Async await patterns
+- Day 83 (Day-083.md) - Context typing
+- Day 84 (Day-084.md) - Testing typed functions
+- Day 85 (Day-085.md) - Arrays and tuples
+- Day 86 (Day-086.md) - Object types
+- Day 87 (Day-087.md) - Generic constraints
+- Day 88 (Day-088.md) - Fetch response models
+- Day 89 (Day-089.md) - Form event typing
+- Day 90 (Day-090.md) - Mini project increment
+- Day 91 (Day-091.md) - Setup and tsconfig
+- Day 92 (Day-092.md) - Union types
+- Day 93 (Day-093.md) - Mapped types basics
+- Day 94 (Day-094.md) - Error handling strategy
+- Day 95 (Day-095.md) - Refactoring a feature module
+- Day 96 (Day-096.md) - Module boundaries
+- Day 97 (Day-097.md) - Primitive types
+- Day 98 (Day-098.md) - Literal types
+- Day 99 (Day-099.md) - Utility types
+- Day 100 (Day-100.md) - Reusable API helpers
+- Day 101 (Day-101.md) - Typed component props
+- Day 102 (Day-102.md) - DTO and domain types
+- Day 103 (Day-103.md) - Type inference
+- Day 104 (Day-104.md) - Type alias vs interface
+- Day 105 (Day-105.md) - Discriminated unions
+- Day 106 (Day-106.md) - Promise typing
+- Day 107 (Day-107.md) - State and hooks typing
+- Day 108 (Day-108.md) - Validation approach
+- Day 109 (Day-109.md) - Functions with return types
+- Day 110 (Day-110.md) - Optional and readonly properties
+- Day 111 (Day-111.md) - Generic functions
+- Day 112 (Day-112.md) - Async await patterns
+- Day 113 (Day-113.md) - Context typing
+- Day 114 (Day-114.md) - Testing typed functions
+- Day 115 (Day-115.md) - Arrays and tuples
+- Day 116 (Day-116.md) - Object types
+- Day 117 (Day-117.md) - Generic constraints
+- Day 118 (Day-118.md) - Fetch response models
+- Day 119 (Day-119.md) - Form event typing
+- Day 120 (Day-120.md) - Mini project increment
+- Day 121 (Day-121.md) - Setup and tsconfig
+- Day 122 (Day-122.md) - Union types
+- Day 123 (Day-123.md) - Mapped types basics
+- Day 124 (Day-124.md) - Error handling strategy
+- Day 125 (Day-125.md) - Refactoring a feature module
+- Day 126 (Day-126.md) - Module boundaries
+- Day 127 (Day-127.md) - Primitive types
+- Day 128 (Day-128.md) - Literal types
+- Day 129 (Day-129.md) - Utility types
+- Day 130 (Day-130.md) - Reusable API helpers
+- Day 131 (Day-131.md) - Typed component props
+- Day 132 (Day-132.md) - DTO and domain types
+- Day 133 (Day-133.md) - Type inference
+- Day 134 (Day-134.md) - Type alias vs interface
+- Day 135 (Day-135.md) - Discriminated unions
+- Day 136 (Day-136.md) - Promise typing
+- Day 137 (Day-137.md) - State and hooks typing
+- Day 138 (Day-138.md) - Validation approach
+- Day 139 (Day-139.md) - Functions with return types
+- Day 140 (Day-140.md) - Optional and readonly properties
+- Day 141 (Day-141.md) - Generic functions
+- Day 142 (Day-142.md) - Async await patterns
+- Day 143 (Day-143.md) - Context typing
+- Day 144 (Day-144.md) - Testing typed functions
+- Day 145 (Day-145.md) - Arrays and tuples
+- Day 146 (Day-146.md) - Object types
+- Day 147 (Day-147.md) - Generic constraints
+- Day 148 (Day-148.md) - Fetch response models
+- Day 149 (Day-149.md) - Form event typing
+- Day 150 (Day-150.md) - Mini project increment
+- Day 151 (Day-151.md) - Setup and tsconfig
+- Day 152 (Day-152.md) - Union types
+- Day 153 (Day-153.md) - Mapped types basics

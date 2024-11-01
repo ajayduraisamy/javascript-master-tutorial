@@ -1,29 +1,29 @@
 ﻿# TypeScript Master Tutorial
 
-Daily TypeScript practice plan and commit tracker.
+Full React + TypeScript course project with lesson-by-lesson navigation, explanations, and code examples.
 
-## Timeline
+## Duration
 - Start: August 1, 2024
-- End: October 31, 2024
-- Total duration: 92 days
+- End: December 31, 2024
+- Total: 153 days
 
-## Daily Rules
-- Complete **3 to 5 TypeScript tasks** every day.
-- Make **exactly 5 commits** every day.
-- Push all commits to GitHub on the same day.
+## What's Included
+- React + TypeScript app with:
+  - Navbar
+  - Footer
+  - Lesson sidebar
+  - Day-wise lesson pages
+- Daily markdown lessons (`daily-lessons/Day-001.md` ... `Day-153.md`)
+- Master tracker (`TypeScript-Master-Tutorial.md`) with 3-5 tasks and 5 commit checklist per day
 
-## Files
-- `TypeScript-Master-Tutorial.md`: full day-by-day schedule and commit checklist.
+## Project Structure
+- `src/components`: Navbar, Footer, LessonSidebar
+- `src/pages`: HomePage, LessonPage
+- `src/data/lessons.ts`: all lesson content used by UI
+- `daily-lessons`: markdown lesson notes for each day
 
-## Suggested Daily Commit Pattern
-1. `setup/read` (notes + references)
-2. `practice-1` (core concept coding)
-3. `practice-2` (exercise/problem solving)
-4. `mini-project/refactor` (applied work)
-5. `daily-summary` (notes + recap)
-
-## How to Use
-- Open the markdown file each day.
-- Finish task checkboxes.
-- Complete all 5 commit checkboxes.
-- Keep streak with no missed day.
+## Run
+```bash
+npm install
+npm run dev
+```
